@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.Json.Serialization;
+
+namespace BiletRezervasyon.Varlıklar
+{
+    [JsonDerivedType(typeof(Admin), typeDiscriminator: "admin")]
+    [JsonDerivedType(typeof(Musteri), typeDiscriminator: "musteri")]
+
+    public abstract class Kullanici
+    {
+
+        public int ID { get; set; }
+        public string KullaniciAdi { get; set; }
+        public string Sifre { get; set; }
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+
+
+    }
+}

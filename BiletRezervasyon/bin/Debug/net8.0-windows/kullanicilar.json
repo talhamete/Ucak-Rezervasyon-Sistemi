@@ -1,0 +1,19 @@
+[
+  {
+    "$type": "admin",
+    "ID": 1,
+    "KullaniciAdi": "admin",
+    "Sifre": "123",
+    "Ad": "Y\u00F6netici",
+    "Soyad": "Sistem"
+  },
+  {
+    "$type": "musteri",
+    "TcNo": "11111111111",
+    "ID": 2,
+    "KullaniciAdi": "musteri",
+    "Sifre": "456",
+    "Ad": "Ahmet",
+    "Soyad": "Y\u0131lmaz"
+  }
+]
