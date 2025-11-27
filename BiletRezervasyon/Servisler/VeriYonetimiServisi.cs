@@ -7,7 +7,7 @@ namespace BiletRezervasyon.Servisler
 {
     public static class VeriYonetimiServisi
     {
-        // Klasör ve Dosya Yolları
+        
         private static readonly string _klasorYolu;
         private static readonly string _kullanicilarYolu;
         private static readonly string _personellerYolu;
@@ -16,25 +16,24 @@ namespace BiletRezervasyon.Servisler
 
         static VeriYonetimiServisi()
         {
-            // 1. Klasör Yolunu Belirle: .exe'nin olduğu yerdeki "VeriTabani" klasörü
+            
             _klasorYolu = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "VeriTabani");
 
-            // 2. Klasör Yoksa Oluştur
+           
             if (!Directory.Exists(_klasorYolu))
             {
                 Directory.CreateDirectory(_klasorYolu);
             }
 
-            // 3. Dosya Yollarını Tanımla
+          
             _kullanicilarYolu = Path.Combine(_klasorYolu, "Kullanicilar.json");
             _personellerYolu = Path.Combine(_klasorYolu, "Personeller.json");
             _ucaklarYolu = Path.Combine(_klasorYolu, "Ucaklar.json");
             _seferlerYolu = Path.Combine(_klasorYolu, "Seferler.json");
         }
 
-        // ==========================================
-        //  GENEL KAYDETME VE YÜKLEME YARDIMCILARI
-        // ==========================================
+     
+
 
         private static void Kaydet<T>(string dosyaYolu, List<T> veri)
         {
@@ -50,9 +49,7 @@ namespace BiletRezervasyon.Servisler
             return JsonSerializer.Deserialize<List<T>>(json);
         }
 
-        // ==========================================
-        //  ÖZEL METOTLAR (DIŞARIDAN ÇAĞRILACAK)
-        // ==========================================
+      
 
         public static void KullanicilariKaydet(List<Kullanici> liste) => Kaydet(_kullanicilarYolu, liste);
         public static List<Kullanici> KullanicilariYukle() => Yukle<Kullanici>(_kullanicilarYolu);
@@ -66,12 +63,10 @@ namespace BiletRezervasyon.Servisler
         public static void SeferleriKaydet(List<Sefer> liste) => Kaydet(_seferlerYolu, liste);
         public static List<Sefer> SeferleriYukle() => Yukle<Sefer>(_seferlerYolu);
 
-        // ==========================================
-        //  SİHİRLİ KISIM: İLK KURULUM
-        // ==========================================
+     
         public static void VeriTabaniniBaslat()
         {
-            // Eğer Uçaklar dosyası yoksa, sistemi ilk kez kuruyoruz demektir.
+            
             if (!File.Exists(_ucaklarYolu))
             {
                 // 1. UÇAKLARI OLUŞTUR

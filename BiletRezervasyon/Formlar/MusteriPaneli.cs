@@ -24,7 +24,7 @@ namespace BiletRezervasyon.Formlar
 
         void pencereyikisisellestir()
         {
-            this.Text = $"Hoşgeldiniz {kullanici.Ad} bey";
+            this.Text = $"Hoşgeldiniz, Sayın {kullanici.Ad}";
         }
 
         private void MusteriPencere_Load(object sender, EventArgs e)

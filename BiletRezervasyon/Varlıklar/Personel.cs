@@ -13,6 +13,10 @@ namespace BiletRezervasyon.Varlıklar
         public string Ad { get; set; }
         public string Soyad { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Ad} {Soyad}";
+        }
 
     }
 }

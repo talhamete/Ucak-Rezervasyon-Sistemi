@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiletRezervasyon.Varlıklar
 {
-    internal class Rezervasyon
+    public class Rezervasyon
     {
         int rezervasyonId;
         Musteri musteri;

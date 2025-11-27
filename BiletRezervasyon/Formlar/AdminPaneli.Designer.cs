@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            textBox2 = new TextBox();
+            seferNoTB = new TextBox();
             groupBox1 = new GroupBox();
-            dateTimePicker2 = new DateTimePicker();
+            timePicker = new DateTimePicker();
             label10 = new Label();
             label9 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            datePicker = new DateTimePicker();
             label8 = new Label();
             ucakKapasiteTB = new TextBox();
             label7 = new Label();
@@ -56,7 +55,6 @@
             btnGuncelle = new Button();
             btnSil = new Button();
             btnEkle = new Button();
-            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -65,27 +63,29 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(8, 7);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(607, 480);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
-            // textBox2
+            // seferNoTB
             // 
-            textBox2.Location = new Point(389, 26);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 2;
+            seferNoTB.Location = new Point(389, 26);
+            seferNoTB.Name = "seferNoTB";
+            seferNoTB.ReadOnly = true;
+            seferNoTB.Size = new Size(125, 27);
+            seferNoTB.TabIndex = 2;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dateTimePicker2);
+            groupBox1.Controls.Add(timePicker);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(datePicker);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(ucakKapasiteTB);
             groupBox1.Controls.Add(label7);
@@ -106,7 +106,7 @@
             groupBox1.Controls.Add(btnGuncelle);
             groupBox1.Controls.Add(btnSil);
             groupBox1.Controls.Add(btnEkle);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(seferNoTB);
             groupBox1.Location = new Point(705, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(531, 475);
@@ -114,15 +114,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // dateTimePicker2
+            // timePicker
             // 
-            dateTimePicker2.CustomFormat = "HH:mm";
-            dateTimePicker2.Format = DateTimePickerFormat.Custom;
-            dateTimePicker2.Location = new Point(389, 189);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.ShowUpDown = true;
-            dateTimePicker2.Size = new Size(125, 27);
-            dateTimePicker2.TabIndex = 30;
+            timePicker.CustomFormat = "HH:mm";
+            timePicker.Format = DateTimePickerFormat.Custom;
+            timePicker.Location = new Point(389, 189);
+            timePicker.Name = "timePicker";
+            timePicker.ShowUpDown = true;
+            timePicker.Size = new Size(125, 27);
+            timePicker.TabIndex = 30;
             // 
             // label10
             // 
@@ -142,15 +142,15 @@
             label9.TabIndex = 28;
             label9.Text = "Kalkış Günü";
             // 
-            // dateTimePicker1
+            // datePicker
             // 
-            dateTimePicker1.Cursor = Cursors.IBeam;
-            dateTimePicker1.CustomFormat = "dd.mm.yyyy";
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(389, 156);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(125, 27);
-            dateTimePicker1.TabIndex = 27;
+            datePicker.Cursor = Cursors.IBeam;
+            datePicker.CustomFormat = "dd.MM.yyyy";
+            datePicker.Format = DateTimePickerFormat.Custom;
+            datePicker.Location = new Point(389, 156);
+            datePicker.Name = "datePicker";
+            datePicker.Size = new Size(125, 27);
+            datePicker.TabIndex = 27;
             // 
             // label8
             // 
@@ -216,7 +216,6 @@
             // cmbKabinM
             // 
             cmbKabinM.FormattingEnabled = true;
-            cmbKabinM.Items.AddRange(new object[] { "asd asd asd" });
             cmbKabinM.Location = new Point(389, 317);
             cmbKabinM.Name = "cmbKabinM";
             cmbKabinM.Size = new Size(89, 28);
@@ -233,7 +232,7 @@
             // cmbKalkis
             // 
             cmbKalkis.FormattingEnabled = true;
-            cmbKalkis.Location = new Point(389, 215);
+            cmbKalkis.Location = new Point(388, 218);
             cmbKalkis.Name = "cmbKalkis";
             cmbKalkis.Size = new Size(125, 28);
             cmbKalkis.TabIndex = 17;
@@ -250,7 +249,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(338, 218);
+            label6.Location = new Point(337, 221);
             label6.Name = "label6";
             label6.Size = new Size(47, 20);
             label6.TabIndex = 15;
@@ -295,28 +294,30 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(319, 33);
+            label1.Location = new Point(315, 33);
             label1.Name = "label1";
-            label1.Size = new Size(64, 20);
+            label1.Size = new Size(67, 20);
             label1.TabIndex = 8;
-            label1.Text = "Uçuş No";
+            label1.Text = "Sefer No";
             // 
             // btnGuncelle
             // 
+            btnGuncelle.Enabled = false;
             btnGuncelle.Location = new Point(221, 426);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(94, 29);
             btnGuncelle.TabIndex = 7;
-            btnGuncelle.Text = "button1";
+            btnGuncelle.Text = "Güncelle";
             btnGuncelle.UseVisualStyleBackColor = true;
             // 
             // btnSil
             // 
+            btnSil.Enabled = false;
             btnSil.Location = new Point(121, 426);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(94, 29);
             btnSil.TabIndex = 6;
-            btnSil.Text = "button1";
+            btnSil.Text = "Sil";
             btnSil.UseVisualStyleBackColor = true;
             // 
             // btnEkle
@@ -325,8 +326,9 @@
             btnEkle.Name = "btnEkle";
             btnEkle.Size = new Size(94, 29);
             btnEkle.TabIndex = 5;
-            btnEkle.Text = "button1";
+            btnEkle.Text = "Ekle";
             btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.Click += btnEkle_Click;
             // 
             // AdminPaneli
             // 
@@ -347,7 +349,7 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private TextBox textBox2;
+        private TextBox seferNoTB;
         private GroupBox groupBox1;
         private Button btnSil;
         private Button btnEkle;
@@ -370,9 +372,8 @@
         private Label label7;
         private TextBox ucakModelTB;
         private Label label9;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker datePicker;
         private Label label10;
-        private System.Windows.Forms.Timer timer1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker timePicker;
     }
 }

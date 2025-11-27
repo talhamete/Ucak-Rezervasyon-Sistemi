@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiletRezervasyon.Varlıklar
 {
-    internal class Admin : Kullanici
+    public class Admin : Kullanici
     {
 
     }

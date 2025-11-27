@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiletRezervasyon.Varlıklar
 {
-    internal class KabinMemuru:Personel
+    public class KabinMemuru:Personel
     {
     }
 }
