@@ -1,6 +1,6 @@
 ﻿namespace BiletRezervasyon.Varlıklar
 {
-    internal class Pilot:Personel
+    internal class Pilot : Personel
     {
     }
 }

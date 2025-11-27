@@ -22,10 +22,11 @@ namespace BiletRezervasyon.Formlar
             InitializeComponent();
 
             // 3. Servisimizi başlat
-            VeriYonetimiServisi _veriServisi = new VeriYonetimiServisi();
+            VeriYonetimiServisi.VeriTabaniniBaslat();
 
             // 4. Test verisi oluşturmak yerine, VERİYİ YÜKLE!
-            _kullaniciListesi = _veriServisi.KullanicilariYukle();
+            _kullaniciListesi = VeriYonetimiServisi.KullanicilariYukle();
+
         }
 
         private void btnGirisYap_Click(object sender, EventArgs e)

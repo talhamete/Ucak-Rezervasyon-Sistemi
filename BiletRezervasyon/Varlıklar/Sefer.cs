@@ -1,8 +1,8 @@
 ﻿namespace BiletRezervasyon.Varlıklar
 {
-    internal class Ucus
+    public class Sefer
     {
-        int ucusNo;
+        int seferNo;
         DateTime seferTarihi;
         Ucak ucak;
         Rota rota;

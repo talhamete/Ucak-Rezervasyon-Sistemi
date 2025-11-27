@@ -1,6 +1,12 @@
-﻿namespace BiletRezervasyon.Varlıklar
+﻿using System.Text.Json.Serialization;
+
+namespace BiletRezervasyon.Varlıklar
 {
-    internal class Personel
+
+
+    [JsonDerivedType(typeof(Pilot), typeDiscriminator: "pilot")]
+    [JsonDerivedType(typeof(KabinMemuru), typeDiscriminator: "kabinMemuru")]
+    public class Personel
     {
 
         public int ID { get; set; }

@@ -1,70 +1,107 @@
-﻿// Bu 'using' satırlarını dosyanın en üstüne eklemelisiniz.
-using BiletRezervasyon.Varlıklar; // Admin, Musteri gibi sınıflarımız için
-using System.Collections.Generic; // List<> için
-using System.IO; // Dosya işlemleri (Okuma/Yazma) için
-using System.Text.Json; // JSON işlemleri için
+﻿using BiletRezervasyon.Varlıklar;
+using System.Diagnostics.Metrics;
+using System.IO;
+using System.Text.Json;
 
 namespace BiletRezervasyon.Servisler
 {
-    public class VeriYonetimiServisi
+    public static class VeriYonetimiServisi
     {
-        // Kullanıcı verilerini saklayacağımız dosyanın adı.
-        // Bu dosya .exe'nin yanına oluşturulacak.
-        private const string _kullanicilarDosyaYolu = "kullanicilar.json";
+        // Klasör ve Dosya Yolları
+        private static readonly string _klasorYolu;
+        private static readonly string _kullanicilarYolu;
+        private static readonly string _personellerYolu;
+        private static readonly string _ucaklarYolu;
+        private static readonly string _seferlerYolu;
 
-        // İleride buraya uçuşlar için de bir yol ekleyeceğiz:
-        // private const string _seferlerDosyaYolu = "seferler.json";
-
-
-        // 1. VERİ KAYDETME METODU
-        public void KullanicilariKaydet(List<Kullanici> kullanicilar)
+        static VeriYonetimiServisi()
         {
-            // JsonSerializer, listemizi alır ve onu JSON formatında bir metne dönüştürür.
-            string jsonString = JsonSerializer.Serialize(kullanicilar, new JsonSerializerOptions { WriteIndented = true });
+            // 1. Klasör Yolunu Belirle: .exe'nin olduğu yerdeki "VeriTabani" klasörü
+            _klasorYolu = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "VeriTabani");
 
-            // Bu metni dosyaya yazar.
-            File.WriteAllText(_kullanicilarDosyaYolu, jsonString);
-        }
-
-        // 2. VERİ YÜKLEME METODU
-        public List<Kullanici> KullanicilariYukle()
-        {
-            // Program ilk kez çalışıyorsa ve dosya henüz yoksa?
-            if (!File.Exists(_kullanicilarDosyaYolu))
+            // 2. Klasör Yoksa Oluştur
+            if (!Directory.Exists(_klasorYolu))
             {
-                // Dosya yoksa, bizim test verimizi oluştur
-                List<Kullanici> testKullanicilari = new List<Kullanici>();
-                testKullanicilari.Add(new Admin
-                {
-                    ID = 1,
-                    KullaniciAdi = "admin",
-                    Sifre = "123",
-                    Ad = "Yönetici",
-                    Soyad = "Sistem"
-                });
-                testKullanicilari.Add(new Musteri
-                {
-                    ID = 2,
-                    KullaniciAdi = "musteri",
-                    Sifre = "456",
-                    Ad = "Ahmet",
-                    Soyad = "Yılmaz",
-                    TcNo = "11111111111"
-                });
-
-                // Bu test verisini hemen dosyaya kaydet (bir sonraki açılış için)
-                KullanicilariKaydet(testKullanicilari);
-
-                // Ve bu yeni listeyi geri döndür
-                return testKullanicilari;
+                Directory.CreateDirectory(_klasorYolu);
             }
 
-            // Eğer dosya varsa:
-            // Dosyadaki tüm JSON metnini oku
-            string jsonString = File.ReadAllText(_kullanicilarDosyaYolu);
+            // 3. Dosya Yollarını Tanımla
+            _kullanicilarYolu = Path.Combine(_klasorYolu, "Kullanicilar.json");
+            _personellerYolu = Path.Combine(_klasorYolu, "Personeller.json");
+            _ucaklarYolu = Path.Combine(_klasorYolu, "Ucaklar.json");
+            _seferlerYolu = Path.Combine(_klasorYolu, "Seferler.json");
+        }
 
-            // JSON metnini al ve onu tekrar List<Kullanici> nesnesine dönüştür
-            return JsonSerializer.Deserialize<List<Kullanici>>(jsonString);
+        // ==========================================
+        //  GENEL KAYDETME VE YÜKLEME YARDIMCILARI
+        // ==========================================
+
+        private static void Kaydet<T>(string dosyaYolu, List<T> veri)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(veri, options);
+            File.WriteAllText(dosyaYolu, json);
+        }
+
+        private static List<T> Yukle<T>(string dosyaYolu)
+        {
+            if (!File.Exists(dosyaYolu)) return new List<T>();
+            string json = File.ReadAllText(dosyaYolu);
+            return JsonSerializer.Deserialize<List<T>>(json);
+        }
+
+        // ==========================================
+        //  ÖZEL METOTLAR (DIŞARIDAN ÇAĞRILACAK)
+        // ==========================================
+
+        public static void KullanicilariKaydet(List<Kullanici> liste) => Kaydet(_kullanicilarYolu, liste);
+        public static List<Kullanici> KullanicilariYukle() => Yukle<Kullanici>(_kullanicilarYolu);
+
+        public static void PersonelleriKaydet(List<Personel> liste) => Kaydet(_personellerYolu, liste);
+        public static List<Personel> PersonelleriYukle() => Yukle<Personel>(_personellerYolu);
+
+        public static void UcaklariKaydet(List<Ucak> liste) => Kaydet(_ucaklarYolu, liste);
+        public static List<Ucak> UcaklariYukle() => Yukle<Ucak>(_ucaklarYolu);
+
+        public static void SeferleriKaydet(List<Sefer> liste) => Kaydet(_seferlerYolu, liste);
+        public static List<Sefer> SeferleriYukle() => Yukle<Sefer>(_seferlerYolu);
+
+        // ==========================================
+        //  SİHİRLİ KISIM: İLK KURULUM
+        // ==========================================
+        public static void VeriTabaniniBaslat()
+        {
+            // Eğer Uçaklar dosyası yoksa, sistemi ilk kez kuruyoruz demektir.
+            if (!File.Exists(_ucaklarYolu))
+            {
+                // 1. UÇAKLARI OLUŞTUR
+                var ucaklar = new List<Ucak>
+                {
+                    new Ucak { UcakID = 1, Model = "Boeing 737-800", Kapasite = 189, KuyrukNo = "TC-JHK" },
+                    new Ucak { UcakID = 2, Model = "Airbus A320", Kapasite = 150, KuyrukNo = "TC-DBG" },
+                    new Ucak { UcakID = 3, Model = "Boeing 777", Kapasite = 300, KuyrukNo = "TC-JJJ" }
+                };
+                UcaklariKaydet(ucaklar);
+
+                // 2. PERSONELLERİ OLUŞTUR
+                var personeller = new List<Personel>
+                {
+                    new Pilot { ID=1, Ad="Ahmet", Soyad="Kaptan" },
+                    new Pilot { ID=2, Ad="Ayşe", Soyad="Gökçen" },
+                    new KabinMemuru { ID=3, Ad="Mehmet", Soyad="Yılmaz" },
+                    new KabinMemuru { ID=4, Ad="Zeynep", Soyad="Kaya" },
+                    new KabinMemuru { ID=5, Ad="Can", Soyad="Demir" }
+                };
+                PersonelleriKaydet(personeller);
+
+                // 3. KULLANICILARI OLUŞTUR
+                var kullanicilar = new List<Kullanici>
+                {
+                    new Admin { ID=1, KullaniciAdi="admin", Sifre="123", Ad="System", Soyad="Admin" },
+                    new Musteri { ID=2, KullaniciAdi="musteri", Sifre="123", Ad="Ali", Soyad="Veli", TcNo="11111111111" }
+                };
+                KullanicilariKaydet(kullanicilar);
+            }
         }
     }
 }

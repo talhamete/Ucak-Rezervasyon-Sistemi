@@ -6,16 +6,7 @@ using System.Threading.Tasks;
 
 namespace BiletRezervasyon.Varlıklar
 {
-    internal class Rezervasyon
+    internal class KabinMemuru:Personel
     {
-        int rezervasyonId;
-        Musteri musteri;
-        Sefer sefer;
-        DateTime rezervasyonTarihi;
-        int koltukNumarasi;
-
-
-
-
     }
 }
