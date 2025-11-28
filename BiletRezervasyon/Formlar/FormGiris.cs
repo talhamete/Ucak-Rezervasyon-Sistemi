@@ -14,45 +14,47 @@ namespace BiletRezervasyon.Formlar
 {
     public partial class FormGiris : Form
     {
-        private List<Kullanici> _kullaniciListesi;
 
 
         public FormGiris()
         {
             InitializeComponent();
 
-            // 3. Servisimizi başlat
             VeriYonetimiServisi.VeriTabaniniBaslat();
+            Veriler.personeller = VeriYonetimiServisi.PersonelleriYukle();
+            Veriler.seferler = VeriYonetimiServisi.SeferleriYukle();
+            Veriler.ucaklar = VeriYonetimiServisi.UcaklariYukle();
+            Veriler.kullanicilar = VeriYonetimiServisi.KullanicilariYukle();
 
-            // 4. Test verisi oluşturmak yerine, VERİYİ YÜKLE!
-            _kullaniciListesi = VeriYonetimiServisi.KullanicilariYukle();
+       
 
         }
 
         private void btnGirisYap_Click(object sender, EventArgs e)
         {
-            // 1. Textbox'lardan verileri al
+            // Textbox'lardan verileri al
             string girilenKullaniciAdi = txtKullaniciAdi.Text;
             string girilenSifre = txtSifre.Text;
 
-            // 2. Listemizde bu kullanıcıyı ara (LINQ kullanıyoruz)
-            Kullanici bulunanKullanici = _kullaniciListesi.FirstOrDefault(k =>
+            //  Listemizde bu kullanıcıyı ara
+            Kullanici bulunanKullanici = Veriler.kullanicilar.FirstOrDefault(k =>
                 k.KullaniciAdi == girilenKullaniciAdi &&
                 k.Sifre == girilenSifre);
 
-            // 3. Kullanıcı bulundu mu?
+            //  Kullanıcı bulundu mu?
             if (bulunanKullanici != null)
             {
-                // Kullanıcı bulundu! Şimdi ROL KONTROLÜ (Polymorphism)
-                // Bu, Personel-Pilot listesindeki mantığın aynısı!
-
-                if (bulunanKullanici is Admin)
+               
+                
+                // ROL KONTROLÜ
+                
+                 if (bulunanKullanici is Admin)
                 {
                     // BU BİR ADMİN
                     MessageBox.Show("Admin girişi başarılı!");
                     AdminPaneli adminForm = new AdminPaneli(bulunanKullanici as Admin);
                     adminForm.Show();
-                    this.Hide(); // Giriş formunu gizle
+                    this.Hide(); 
                 }
                 else if (bulunanKullanici is Musteri)
                 {
@@ -60,7 +62,7 @@ namespace BiletRezervasyon.Formlar
                     MessageBox.Show("Müşteri girişi başarılı!");
                     MusteriPaneli musteriForm = new MusteriPaneli(bulunanKullanici as Musteri); // Müşteri bilgisini diğer forma yolla
                      musteriForm.Show();
-                     this.Hide(); // Giriş formunu gizle
+                     this.Hide(); 
                 }
             }
             else

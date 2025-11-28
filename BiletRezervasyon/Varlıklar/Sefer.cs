@@ -9,6 +9,7 @@
         public List<KabinMemuru> KabinMemurlari{ get; set; }
         public Pilot Pilot { get; set; }
 
+        public List<Koltuk> Koltuklar { get; set; }
 
         public Sefer(DateTime tarih, Ucak ucak, Rota rota, List<KabinMemuru> kabinMemurlari , Pilot pilot)
         {
@@ -21,11 +22,22 @@
             this.Rota = rota;
             this.KabinMemurlari = kabinMemurlari;
             this.Pilot = pilot;
+            this.Koltuklar = new List<Koltuk>();
+            for (int i = 1; i <= ucak.Kapasite; i++)
+            {
+                Koltuk koltuk = new Koltuk(i);
+                this.Koltuklar.Add(koltuk);
+            }
         }
         public Sefer()
         {
 
         }
+        public override string ToString()
+        {
+            return SeferNo.ToString();
+        }
+
     }
 }
 

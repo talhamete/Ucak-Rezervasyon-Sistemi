@@ -8,13 +8,21 @@ namespace BiletRezervasyon.Varlıklar
 {
     public class Rezervasyon
     {
-        int rezervasyonId;
-        Musteri musteri;
-        Sefer sefer;
-        DateTime rezervasyonTarihi;
-        int koltukNumarasi;
+        public int RezervasyonId { get; set; }
+        public Sefer Sefer { get; set; }
+        public DateTime RezervasyonTarihi { get; set; }
+        public Koltuk Koltuk { get; set; }
 
+        public Rezervasyon() { } 
 
+        public Rezervasyon(Musteri musteri, Sefer sefer, Koltuk koltuk)
+        {
+            Random rnd = new Random();
+            this.RezervasyonId = rnd.Next(10000, 99999);
+            this.Sefer = sefer;
+            this.RezervasyonTarihi = DateTime.Now;
+            this.Koltuk = koltuk;
+        }
 
 
     }

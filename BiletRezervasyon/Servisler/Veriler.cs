@@ -12,6 +12,7 @@ namespace BiletRezervasyon.Servisler
         public static List<Personel> personeller = new List<Personel>();
         public static List<Sefer> seferler = new List<Sefer>();
         public static List<Ucak> ucaklar = new List<Ucak>();
+        public static List<Kullanici> kullanicilar = new List<Kullanici>();
 
 
     }

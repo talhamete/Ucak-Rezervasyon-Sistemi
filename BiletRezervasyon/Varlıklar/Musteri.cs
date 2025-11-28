@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BiletRezervasyon.Varlıklar
 {
-    internal class Musteri : Kullanici
+    public class Musteri : Kullanici
     {
         private string _tcNo;
+
         public string TcNo
         {
             get { return _tcNo; }
@@ -31,6 +32,8 @@ namespace BiletRezervasyon.Varlıklar
      
             }
         }
+
+        public List<Rezervasyon> Rezervasyonlar { get; set; } = new List<Rezervasyon>();
 
     }
 }
