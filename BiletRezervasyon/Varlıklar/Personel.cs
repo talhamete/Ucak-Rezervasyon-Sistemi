@@ -6,7 +6,7 @@ namespace BiletRezervasyon.Varlıklar
 
     [JsonDerivedType(typeof(Pilot), typeDiscriminator: "pilot")]
     [JsonDerivedType(typeof(KabinMemuru), typeDiscriminator: "kabinMemuru")]
-    public class Personel
+    public abstract class Personel
     {
 
         public int ID { get; set; }
