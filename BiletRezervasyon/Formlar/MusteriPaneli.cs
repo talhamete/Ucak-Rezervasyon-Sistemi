@@ -44,7 +44,7 @@ namespace BiletRezervasyon.Formlar
         {
             if (e.RowIndex < 0)
             {
-                
+
                 rezerveEtBtn.Enabled = false;
                 seciliSefer = null;
                 koltukCMB.Items.Clear();
@@ -61,7 +61,7 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
-        private void rezerveEtBtn_Click(object sender, EventArgs e)
+        void RezerveEt()
         {
             if (koltukCMB.SelectedItem == null || seciliSefer == null)
             {
@@ -74,10 +74,11 @@ namespace BiletRezervasyon.Formlar
             VerileriGuncelle();
 
             MessageBox.Show("Rezervasyon başarılı!");
+        }
 
-
-
-
+        private void rezerveEtBtn_Click(object sender, EventArgs e)
+        {
+            RezerveEt();
         }
         void VerileriGuncelle()
         {
@@ -100,13 +101,22 @@ namespace BiletRezervasyon.Formlar
 
         }
 
-
-
-        private void rezerveSilBtn_Click(object sender, EventArgs e)
+        void RezervasyonSil()
         {
             curMusteri.Rezervasyonlar.Remove(seciliRezervasyon);
             seciliRezervasyon.Koltuk.DoluMu = false;
             VerileriGuncelle();
+        }
+
+        private void rezerveSilBtn_Click(object sender, EventArgs e)
+        {
+            RezervasyonSil();
+        }
+
+        void RezervasyonGuncelle()
+        {
+            seciliRezervasyon.Koltuk = (Koltuk)koltukCMB.SelectedItem;
+
         }
 
         private void rezervasyonlarGDV_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,17 +125,25 @@ namespace BiletRezervasyon.Formlar
             {
                 seciliRezervasyon = null;
                 rezerveSilBtn.Enabled = false;
+                rezervasyonGuncelleBtn.Enabled = false;
                 return;
             }
             seciliRezervasyon = (Rezervasyon)rezervasyonlarGDV.Rows[e.RowIndex].DataBoundItem;
 
             if (seciliRezervasyon != null)
             {
+                rezervasyonGuncelleBtn.Enabled = true;
                 rezerveSilBtn.Enabled = true;
+                koltukCMB.Items.AddRange(seciliRezervasyon.Sefer.Koltuklar.Where(a => !a.DoluMu).ToArray());
+                koltukCMB.SelectedItem = seciliRezervasyon.Koltuk;
+//guncelle burada tekrar gridi
 
             }
         }
 
-     
+        private void rezervasyonGuncelleBtn_Click(object sender, EventArgs e)
+        {
+            RezervasyonGuncelle();
+        }
     }
 }

@@ -86,6 +86,10 @@ namespace BiletRezervasyon.Formlar
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
+           SeferEkle();
+        }
+
+        void SeferEkle() { 
             List<KabinMemuru> seciliKabinMemurlari = kabinMLB.Items.Cast<KabinMemuru>().ToList();
 
 
@@ -105,6 +109,7 @@ namespace BiletRezervasyon.Formlar
 
             }
         }
+
 
         private bool Input_Kontrol()
         {
@@ -225,6 +230,12 @@ namespace BiletRezervasyon.Formlar
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
+
+            SeferGuncelle();
+
+        }
+        void SeferGuncelle() {
+
             List<KabinMemuru> seciliKabinMemurlari = kabinMLB.Items.Cast<KabinMemuru>().ToList();
             seciliSefer.SeferTarihi = datePicker.Value.Date + (TimeSpan)timePicker.Value.TimeOfDay;
             seciliSefer.Ucak = Veriler.ucaklar.First(a => cmbUcak.Text == a.KuyrukNo);
@@ -235,16 +246,23 @@ namespace BiletRezervasyon.Formlar
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = Veriler.seferler;
             VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
-
-
         }
 
-        private void btnSil_Click(object sender, EventArgs e)
-        {
+        void SeferSil() {
+
             Veriler.seferler.Remove(seciliSefer);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = Veriler.seferler;
             VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
+
+
+        }
+
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            SeferSil();
+
         }
     }
 }

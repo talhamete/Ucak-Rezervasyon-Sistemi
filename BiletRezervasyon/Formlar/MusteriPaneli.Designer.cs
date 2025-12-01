@@ -35,6 +35,7 @@
             koltukCMB = new ComboBox();
             rezerveEtBtn = new Button();
             rezerveSilBtn = new Button();
+            rezervasyonGuncelleBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)seferlerDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rezervasyonlarGDV).BeginInit();
             SuspendLayout();
@@ -111,11 +112,23 @@
             rezerveSilBtn.UseVisualStyleBackColor = true;
             rezerveSilBtn.Click += rezerveSilBtn_Click;
             // 
+            // rezervasyonGuncelleBtn
+            // 
+            rezervasyonGuncelleBtn.Enabled = false;
+            rezervasyonGuncelleBtn.Location = new Point(872, 149);
+            rezervasyonGuncelleBtn.Name = "rezervasyonGuncelleBtn";
+            rezervasyonGuncelleBtn.Size = new Size(94, 29);
+            rezervasyonGuncelleBtn.TabIndex = 7;
+            rezervasyonGuncelleBtn.Text = "Güncelle";
+            rezervasyonGuncelleBtn.UseVisualStyleBackColor = true;
+            rezervasyonGuncelleBtn.Click += rezervasyonGuncelleBtn_Click;
+            // 
             // MusteriPaneli
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 739);
+            Controls.Add(rezervasyonGuncelleBtn);
             Controls.Add(rezerveSilBtn);
             Controls.Add(rezerveEtBtn);
             Controls.Add(koltukCMB);
@@ -141,5 +154,6 @@
         private ComboBox koltukCMB;
         private Button rezerveEtBtn;
         private Button rezerveSilBtn;
+        private Button rezervasyonGuncelleBtn;
     }
 }
