@@ -125,8 +125,13 @@ namespace BiletRezervasyon.Formlar
             {
                 MessageBox.Show("Boş alanlar var!");
             }
+            else if(cmbKalkis.Text == cmbVaris.Text)
+            {
+                MessageBox.Show("Kalkış - Varış aynı olamaz!");
+                return false;
+            }
 
-            return kontrol;
+                return kontrol;
         }
 
         // verileri yükle ve listele, başta bir kere çalışır 
