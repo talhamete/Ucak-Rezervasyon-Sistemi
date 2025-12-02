@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BiletRezervasyon.Varlıklar.Ucak">
+    <Position X="10.5" Y="8" Width="1.5" />
+    <Members>
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAUAAAAAAAAAAAAAAAEAAgAAAAAAAA=</HashCode>
+      <FileName>Varlıklar\Ucak.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Sefer">
+    <Position X="7" Y="6.5" Width="1.75" />
+    <Members>
+      <Method Name="Sefer" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <AssociationLine Name="KabinMemurlari" Type="BiletRezervasyon.Varlıklar.KabinMemuru" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="6.968" />
+        <Point X="14.031" Y="6.968" />
+        <Point X="14.031" Y="4.997" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Pilot" Type="BiletRezervasyon.Varlıklar.Pilot" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="6.708" />
+        <Point X="10.969" Y="6.708" />
+        <Point X="10.969" Y="5.233" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Koltuklar" Type="BiletRezervasyon.Varlıklar.Koltuk" FixedToPoint="true">
+      <Path>
+        <Point X="8.562" Y="7.796" />
+        <Point X="8.562" Y="10" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAACAEAAEAAEAAAAAQAAAAAAAAAAAAIAQAAA=</HashCode>
+      <FileName>Varlıklar\Sefer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Ucak" />
+      <Property Name="Rota" />
+      <Property Name="Pilot" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="KabinMemurlari" />
+      <Property Name="Koltuklar" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Rota">
+    <Position X="8.25" Y="3.75" Width="1.5" />
+    <Members>
+      <Method Name="Rota" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Varlıklar\Rota.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Rezervasyon">
+    <Position X="5" Y="8.25" Width="1.5" />
+    <Members>
+      <Method Name="Rezervasyon" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Sefer" Type="BiletRezervasyon.Varlıklar.Sefer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="8.823" />
+        <Point X="8" Y="8.823" />
+        <Point X="8" Y="7.796" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Koltuk" Type="BiletRezervasyon.Varlıklar.Koltuk" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="9.083" />
+        <Point X="7.5" Y="9.083" />
+        <Point X="7.5" Y="10" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAIAAAIAA=</HashCode>
+      <FileName>Varlıklar\Rezervasyon.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Sefer" />
+      <Property Name="Koltuk" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Pilot">
+    <Position X="10.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Varlıklar\Pilot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Personel">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <Members>
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAgAAEAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Varlıklar\Personel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Musteri">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <Members>
+      <Field Name="_tcNo" Hidden="true" />
+      <Field Name="_telefonNo" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAEQAFAAAAAAAAAAAAAAAAAQAAAABAAA=</HashCode>
+      <FileName>Varlıklar\Musteri.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Rezervasyonlar" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Kullanici">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAAAAAAAAAgQAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Varlıklar\Kullanici.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Koltuk">
+    <Position X="7.25" Y="10" Width="1.5" />
+    <Members>
+      <Method Name="Koltuk" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAEAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Varlıklar\Koltuk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.KabinMemuru">
+    <Position X="13.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Varlıklar\KabinMemuru.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiletRezervasyon.Varlıklar.Admin">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Varlıklar\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

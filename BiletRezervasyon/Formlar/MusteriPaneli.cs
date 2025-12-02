@@ -25,10 +25,7 @@ namespace BiletRezervasyon.Formlar
         }
         private void MusteriPencere_Load(object sender, EventArgs e)
         {
-            seferlerDGV.DataSource = null;
-            seferlerDGV.DataSource = Veriler.seferler;
-            rezervasyonlarGDV.DataSource = null;
-            rezervasyonlarGDV.DataSource = curMusteri.Rezervasyonlar;
+            VerileriGuncelle();
 
 
         }
@@ -75,7 +72,11 @@ namespace BiletRezervasyon.Formlar
         }
 
 
+        void Temizle() // cmbleri temizler
+        {
+            koltukCMB.SelectedItem = null;
 
+        }
        
 
 
@@ -86,6 +87,7 @@ namespace BiletRezervasyon.Formlar
                 seciliRezervasyon = null;
                 rezerveSilBtn.Enabled = false;
                 rezervasyonGuncelleBtn.Enabled = false;
+                rezervasyonlarGDV.ClearSelection();
                 return;
             }
             seciliRezervasyon = (Rezervasyon)rezervasyonlarGDV.Rows[e.RowIndex].DataBoundItem;
@@ -99,6 +101,7 @@ namespace BiletRezervasyon.Formlar
                 koltukCMB.Items.AddRange(seciliRezervasyon.Sefer.Koltuklar.Where(a => !a.DoluMu).ToArray());
                 koltukCMB.Items.Add(seciliRezervasyon.Koltuk);
                 koltukCMB.SelectedItem = seciliRezervasyon.Koltuk;
+                seferlerDGV.ClearSelection();
 
 
             }
@@ -112,6 +115,8 @@ namespace BiletRezervasyon.Formlar
                 rezerveEtBtn.Enabled = false;
                 seciliSefer = null;
                 koltukCMB.Items.Clear();
+                seferlerDGV.ClearSelection();
+
                 return;
             }
             seciliSefer = (Sefer)seferlerDGV.Rows[e.RowIndex].DataBoundItem;
@@ -123,6 +128,7 @@ namespace BiletRezervasyon.Formlar
                 koltukCMB.Items.AddRange(seciliSefer.Koltuklar.Where(a => !a.DoluMu).ToArray()); //bos koltuklari comboboxa ekle
                 rezervasyonGuncelleBtn.Enabled = false;
                 rezerveSilBtn.Enabled = false;
+                rezervasyonlarGDV.ClearSelection();
 
             }
         }
@@ -134,8 +140,12 @@ namespace BiletRezervasyon.Formlar
             VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
             seferlerDGV.DataSource = null;
             seferlerDGV.DataSource = Veriler.seferler;
+            seferlerDGV.ClearSelection();
             rezervasyonlarGDV.DataSource = null;
             rezervasyonlarGDV.DataSource = curMusteri.Rezervasyonlar;
+            rezervasyonlarGDV.ClearSelection();
+            Temizle();
+
             if (seciliSefer != null)
             {
                 koltukCMB.Items.Clear();

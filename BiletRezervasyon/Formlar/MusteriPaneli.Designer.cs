@@ -48,6 +48,7 @@
             seferlerDGV.Name = "seferlerDGV";
             seferlerDGV.ReadOnly = true;
             seferlerDGV.RowHeadersWidth = 51;
+            seferlerDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             seferlerDGV.Size = new Size(719, 364);
             seferlerDGV.TabIndex = 0;
             seferlerDGV.CellClick += seferlerDGV_CellClick;
@@ -60,6 +61,7 @@
             rezervasyonlarGDV.Name = "rezervasyonlarGDV";
             rezervasyonlarGDV.ReadOnly = true;
             rezervasyonlarGDV.RowHeadersWidth = 51;
+            rezervasyonlarGDV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             rezervasyonlarGDV.Size = new Size(719, 267);
             rezervasyonlarGDV.TabIndex = 1;
             rezervasyonlarGDV.CellClick += rezervasyonlarGDV_CellClick;
@@ -84,6 +86,7 @@
             // 
             // koltukCMB
             // 
+            koltukCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             koltukCMB.FormattingEnabled = true;
             koltukCMB.Location = new Point(908, 45);
             koltukCMB.Name = "koltukCMB";

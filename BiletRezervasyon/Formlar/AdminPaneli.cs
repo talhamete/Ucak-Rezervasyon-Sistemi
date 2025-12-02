@@ -1,16 +1,7 @@
 ﻿using BiletRezervasyon.Servisler;
 using BiletRezervasyon.Varlıklar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Metrics;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace BiletRezervasyon.Formlar
 {
@@ -56,6 +47,8 @@ namespace BiletRezervasyon.Formlar
 
                 curAdmin.SeferEkle(yeniSefer);
                 VerileriGuncelle();
+                MessageBox.Show($"Sefer {yeniSefer.SeferNo} başarıyla eklendi.");
+
             }
         }
 
@@ -69,8 +62,9 @@ namespace BiletRezervasyon.Formlar
             
             
             curAdmin.SeferGuncelle(seciliSefer,yeniSefer);
+            int seferNo = seciliSefer.SeferNo; // message box için geçiçi değişken
             VerileriGuncelle();
-            
+            MessageBox.Show($"Sefer {seferNo} başarıyla güncellendi.");
 
 
 
@@ -78,8 +72,10 @@ namespace BiletRezervasyon.Formlar
         // sefer silme butonu
         private void btnSil_Click(object sender, EventArgs e)
         {
+            int seferNo = seciliSefer.SeferNo; // message box için geçiçi değişken
             curAdmin.SeferSil(seciliSefer);
             VerileriGuncelle();
+            MessageBox.Show($"Sefer {seferNo} başarıyla silindi.");
 
         }
 
@@ -113,10 +109,11 @@ namespace BiletRezervasyon.Formlar
         // uçak seçildiğinde kapasite ve model bilgilerini doldur
         private void cmbUcak_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbUcak.SelectedItem != null) { 
             int selectedIndex = cmbUcak.SelectedIndex;
             ucakKapasiteTB.Text = VeriYonetimiServisi.UcaklariYukle()[selectedIndex].Kapasite.ToString();
             ucakModelTB.Text = VeriYonetimiServisi.UcaklariYukle()[selectedIndex].Model.ToString();
-
+        }
         }
 
 
@@ -160,6 +157,22 @@ namespace BiletRezervasyon.Formlar
 
         }
 
+        void Temizle() //cmblerdeki seçili nesneleri temizler
+        {
+            cmbUcak.SelectedItem = null;
+            cmbPilot.SelectedItem = null;
+            kabinMLB.Items.Clear();
+            cmbKalkis.SelectedItem = null;
+            cmbVaris.SelectedItem = null;
+            ucakKapasiteTB.Text = "";
+            ucakModelTB.Text = "";
+            seferNoTB.Text = "";
+            datePicker.Text = null;
+            timePicker.Text = null;
+
+        }
+
+
 
         // sefer seçildiğinde çalışır. Ona göre düğmelerin aktifliğini ayarlayan fonksiyonları çağırı ve secili seferi atar
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -168,6 +181,7 @@ namespace BiletRezervasyon.Formlar
             {
                 seciliSefer = null;
                 EklemeModu();
+                VerileriGuncelle();
                 return;
             }
             seciliSefer = (Sefer)dataGridView1.Rows[e.RowIndex].DataBoundItem;
@@ -199,7 +213,6 @@ namespace BiletRezervasyon.Formlar
         }
 
         // seçili seferi silme ve guncelleme moduna alır
-
         void SilmeModu(DataGridViewCellEventArgs e)
         {
 
@@ -211,9 +224,9 @@ namespace BiletRezervasyon.Formlar
 
 
             datePicker.Value = seciliSefer.SeferTarihi;
+            timePicker.Value = seciliSefer.SeferTarihi;
 
-
-
+            cmbPilot.Text = seciliSefer.Pilot.ToString();
             cmbUcak.Text = seciliSefer.Ucak.KuyrukNo;
             cmbKalkis.Text = seciliSefer.Rota.KalkisYeri;
             cmbVaris.Text = seciliSefer.Rota.VarisYeri;
@@ -244,10 +257,14 @@ namespace BiletRezervasyon.Formlar
 
         void VerileriGuncelle()
         {
-
+            seciliSefer = null;
+            EklemeModu();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = Veriler.seferler;
+            dataGridView1.ClearSelection();
+            Temizle();
+
         }
-        
+
     }
 }

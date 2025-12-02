@@ -10,6 +10,8 @@ namespace BiletRezervasyon.Varlıklar
     {
         private string _tcNo;
 
+        private string _telefonNo;
+
         public void RezerveEt(Rezervasyon rezervasyon)
         {
         
@@ -59,7 +61,37 @@ namespace BiletRezervasyon.Varlıklar
             }
         }
 
+        public string TelefonNo
+        {
+            get { return _telefonNo; }
+            set
+            {
+                // boşsa hata
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Telefon numarası boş olamaz!");
+                }
+
+                // sadece rakam olmalı
+                if (!value.All(char.IsDigit))
+                {
+                    throw new ArgumentException("Telefon numarası sadece rakamlardan oluşmalıdır!");
+                }
+
+                
+                // 11 hane olmalı
+                if (value.Length != 11)
+                {
+                    throw new ArgumentException("Telefon numarası başında '0' ile birlikte 11 haneli olmalıdır! (Örn: 05xxxxxxxxx)");
+                }
+
+                // hepsini geçtiyse ata
+                _telefonNo = value;
+            }
+        }
+
         public List<Rezervasyon> Rezervasyonlar { get; set; } = new List<Rezervasyon>();
+
 
     }
 }
