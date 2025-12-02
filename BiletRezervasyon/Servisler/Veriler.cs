@@ -13,6 +13,10 @@ namespace BiletRezervasyon.Servisler
         public static List<Sefer> seferler = new List<Sefer>();
         public static List<Ucak> ucaklar = new List<Ucak>();
         public static List<Kullanici> kullanicilar = new List<Kullanici>();
+        public static string[] _sehirler = {
+        "İstanbul", "Ankara", "İzmir", "Antalya",       // örnek şehirler
+        "Adana", "Trabzon", "Bursa", "Gaziantep", "Konya"
+    };
 
 
     }

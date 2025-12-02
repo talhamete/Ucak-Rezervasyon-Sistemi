@@ -14,7 +14,7 @@ namespace BiletRezervasyon.Servisler
         private static readonly string _ucaklarYolu;
         private static readonly string _seferlerYolu;
 
-        static VeriYonetimiServisi()
+        static VeriYonetimiServisi() // klasik Dosyaya kaydetme ve dosyadan yükleme işlemlerini yapan yardımcı sınıf
         {
             
             _klasorYolu = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "VeriTabani");

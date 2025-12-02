@@ -33,69 +33,53 @@ namespace BiletRezervasyon.Formlar
 
         }
 
-        void pencereyikisisellestir()
+        void pencereyikisisellestir() // kişiselleştiren fonksiyon
         {
             this.Text = $"Hoşgeldiniz, Sayın {curMusteri.Ad}";
         }
 
-        private void rezerveEtBtn_Click(object sender, EventArgs e)
+        private void rezerveEtBtn_Click(object sender, EventArgs e) // rezervasyon ekleme butonu
         {
-            RezerveEt();
-        }
-       
-        private void rezerveSilBtn_Click(object sender, EventArgs e)
-        {
-            RezervasyonSil();
-        }
-        
-        private void rezervasyonGuncelleBtn_Click(object sender, EventArgs e)
-        {
-            RezervasyonGuncelle();
-        }
 
-
-
-       
-
-        void RezerveEt()
-        {
             if (koltukCMB.SelectedItem == null || seciliSefer == null)
             {
                 MessageBox.Show("Lütfen bir koltuk seçin ve sefer seçtiğinizden emin olun.");
                 return;
             }
+            
             Rezervasyon yeniRezerve = new Rezervasyon(curMusteri, seciliSefer, (Koltuk)koltukCMB.SelectedItem);
-            curMusteri.Rezervasyonlar.Add(yeniRezerve);
-            ((Koltuk)koltukCMB.SelectedItem).DoluMu = true;
-
+            
+            curMusteri.RezerveEt(yeniRezerve);
             VerileriGuncelle();
-
             MessageBox.Show($"{yeniRezerve.Sefer}-{yeniRezerve.Koltuk}\r\nRezervasyon başarılı!");
-        }
 
-        void RezervasyonSil()
+        }
+       
+        private void rezerveSilBtn_Click(object sender, EventArgs e) // rezervasyon silme butonu
         {
             Rezervasyon silinenRez = seciliRezervasyon;
-            curMusteri.Rezervasyonlar.Remove(seciliRezervasyon);
-            seciliRezervasyon.Koltuk.DoluMu = false;
+
+            curMusteri.RezervasyonSil(silinenRez);
             VerileriGuncelle();
             MessageBox.Show($"{silinenRez.Sefer}-{silinenRez.Koltuk}\r\nRezervasyon silindi!");
         }
-
-
-        void RezervasyonGuncelle()
+        
+        private void rezervasyonGuncelleBtn_Click(object sender, EventArgs e) // rezervasyon güncelleme butonu
         {
-            seciliRezervasyon.Koltuk.DoluMu = false;
             Koltuk eskiKoltuk = seciliRezervasyon.Koltuk;
-            seciliRezervasyon.Koltuk = (Koltuk)koltukCMB.SelectedItem;
-            seciliRezervasyon.Koltuk.DoluMu = true;
+            curMusteri.RezervasyonGuncelle(seciliRezervasyon, (Koltuk)koltukCMB.SelectedItem);
             VerileriGuncelle();
             MessageBox.Show($"{eskiKoltuk} -> {seciliRezervasyon.Koltuk}\r\nKoltuğunuz Güncellendi.");
 
 
         }
 
-        private void rezervasyonlarGDV_CellClick(object sender, DataGridViewCellEventArgs e)
+
+
+       
+
+
+        private void rezervasyonlarGDV_CellClick(object sender, DataGridViewCellEventArgs e) // rezervasyon seçildiğinde çalışan, secili rezervasyonu atayan ve ona göre koltukCMB yi dolduran fonksiyon
         {
             if (e.RowIndex < 0)
             {
@@ -120,7 +104,7 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
-        private void seferlerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void seferlerDGV_CellClick(object sender, DataGridViewCellEventArgs e) // sefer seçildiğinde çalışan, secili seferi atayan ve ona göre koltukCMB yi dolduran fonksiyon
         {
             if (e.RowIndex < 0)
             {

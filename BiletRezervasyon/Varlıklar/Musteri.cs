@@ -10,6 +10,32 @@ namespace BiletRezervasyon.Varlıklar
     {
         private string _tcNo;
 
+        public void RezerveEt(Rezervasyon rezervasyon)
+        {
+        
+            Rezervasyonlar.Add(rezervasyon);
+            rezervasyon.Koltuk.DoluMu = true;
+
+        }
+
+        public void RezervasyonSil(Rezervasyon rezervasyon)
+        {
+            Rezervasyonlar.Remove(rezervasyon);
+            rezervasyon.Koltuk.DoluMu = false;
+           
+        }
+
+        public void RezervasyonGuncelle(Rezervasyon rezervasyon , Koltuk yeniKoltuk)
+        {
+            rezervasyon.Koltuk.DoluMu = false;
+            rezervasyon.Koltuk = yeniKoltuk;
+            rezervasyon.Koltuk.DoluMu = true;
+            
+
+
+        }
+
+
         public string TcNo
         {
             get { return _tcNo; }

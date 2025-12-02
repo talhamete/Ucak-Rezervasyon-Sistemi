@@ -16,22 +16,10 @@ namespace BiletRezervasyon.Formlar
 {
     public partial class AdminPaneli : Form
     {
-        Kullanici kullanici;
-        private string[] _sehirler = {
-        "İstanbul", "Ankara", "İzmir", "Antalya",
-        "Adana", "Trabzon", "Bursa", "Gaziantep", "Konya"
-    };
+        
+        Admin curAdmin;
 
-
-
-
-
-
-
-
-
-
-
+        Sefer seciliSefer;
 
         public AdminPaneli()
         {
@@ -40,12 +28,11 @@ namespace BiletRezervasyon.Formlar
 
         public AdminPaneli(Kullanici kullanici)
         {
-            this.kullanici = kullanici;
+            this.curAdmin = (Admin)kullanici;
             InitializeComponent();
 
 
         }
-
 
         private void AdminPaneli_Load(object sender, EventArgs e)
         {
@@ -53,13 +40,60 @@ namespace BiletRezervasyon.Formlar
 
         }
 
+        // sefer ekleme butonu
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            List<KabinMemuru> seciliKabinMemurlari = kabinMLB.Items.Cast<KabinMemuru>().ToList();
 
+
+            if (Input_Kontrol())
+            {
+                DateTime tarih = datePicker.Value.Date + (TimeSpan)timePicker.Value.TimeOfDay;
+
+                Sefer yeniSefer = new Sefer(tarih, Veriler.ucaklar.First(a => cmbUcak.Text == a.KuyrukNo),
+                    new Rota(cmbKalkis.Text, cmbVaris.Text),
+                    seciliKabinMemurlari, (Pilot)cmbPilot.SelectedItem);
+
+                curAdmin.SeferEkle(yeniSefer);
+                VerileriGuncelle();
+            }
+        }
+
+        // sefer güncelleme butonu
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+
+            List<KabinMemuru> seciliKabinMemurlari = kabinMLB.Items.Cast<KabinMemuru>().ToList();
+            Sefer yeniSefer = new Sefer(datePicker.Value.Date + (TimeSpan)timePicker.Value.TimeOfDay, (Ucak)cmbUcak.SelectedItem,
+                new Rota(cmbKalkis.Text, cmbVaris.Text), seciliKabinMemurlari, (Pilot)cmbPilot.SelectedItem);
+            
+            
+            curAdmin.SeferGuncelle(seciliSefer,yeniSefer);
+            VerileriGuncelle();
+            
+
+
+
+        }
+        // sefer silme butonu
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            curAdmin.SeferSil(seciliSefer);
+            VerileriGuncelle();
+
+        }
+
+
+
+
+        // kabin memuru çıkarmak için tıklama
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             kabinMLB.Items.Remove(kabinMLB.SelectedItem);
 
         }
 
+        // kabin memuru ekleme butonu
         private void kabinMEkle_Click(object sender, EventArgs e)
         {
             int selectedIndex = cmbKabinM.SelectedIndex;
@@ -76,6 +110,7 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
+        // uçak seçildiğinde kapasite ve model bilgilerini doldur
         private void cmbUcak_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = cmbUcak.SelectedIndex;
@@ -84,33 +119,8 @@ namespace BiletRezervasyon.Formlar
 
         }
 
-        private void btnEkle_Click(object sender, EventArgs e)
-        {
-           SeferEkle();
-        }
 
-        void SeferEkle() { 
-            List<KabinMemuru> seciliKabinMemurlari = kabinMLB.Items.Cast<KabinMemuru>().ToList();
-
-
-            if (Input_Kontrol())
-            {
-                DateTime tarih = datePicker.Value.Date + (TimeSpan)timePicker.Value.TimeOfDay;
-
-                Sefer yeniSefer = new Sefer(
-                    tarih,
-                    Veriler.ucaklar.First(a => cmbUcak.Text == a.KuyrukNo),
-                    new Rota(cmbKalkis.Text, cmbVaris.Text),
-                    seciliKabinMemurlari, (Pilot)cmbPilot.SelectedItem);
-                Veriler.seferler.Add(yeniSefer);
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = Veriler.seferler;
-                VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
-
-            }
-        }
-
-
+        // input kontrol
         private bool Input_Kontrol()
         {
             bool kontrol = (kabinMLB.Items.Count > 0) && (cmbPilot.Text != "") && (cmbKalkis.Text != "") && (cmbVaris.Text != "") && (cmbUcak.Text != "");
@@ -122,32 +132,26 @@ namespace BiletRezervasyon.Formlar
             return kontrol;
         }
 
+        // verileri yükle ve listele, başta bir kere çalışır 
         private void VerileriYukleVeListele()
         {
-            cmbKalkis.Items.AddRange(_sehirler);
-            cmbVaris.Items.AddRange(_sehirler);
+            cmbKalkis.Items.AddRange(Veriler._sehirler);
+            cmbVaris.Items.AddRange(Veriler._sehirler);
 
             Veriler.personeller = VeriYonetimiServisi.PersonelleriYukle();
             Veriler.ucaklar = VeriYonetimiServisi.UcaklariYukle();
             Veriler.seferler = VeriYonetimiServisi.SeferleriYukle();
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = Veriler.seferler;
+            VerileriGuncelle();
 
 
             cmbKabinM.Items.AddRange(
-              Veriler.personeller
-                  .Where(p => p is KabinMemuru)
-                  .ToArray()
+              Veriler.personeller.Where(p => p is KabinMemuru).ToArray()
           );
             cmbPilot.Items.AddRange(
-                Veriler.personeller
-                    .Where(p => p is Pilot)
-                    .ToArray()
+                Veriler.personeller.Where(p => p is Pilot).ToArray()
             );
             cmbUcak.Items.AddRange(
-                Veriler.ucaklar
-
-                    .ToArray()
+                Veriler.ucaklar.ToArray()
             );
 
 
@@ -156,12 +160,13 @@ namespace BiletRezervasyon.Formlar
 
         }
 
-        Sefer seciliSefer;
 
+        // sefer seçildiğinde çalışır. Ona göre düğmelerin aktifliğini ayarlayan fonksiyonları çağırı ve secili seferi atar
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
             {
+                seciliSefer = null;
                 EklemeModu();
                 return;
             }
@@ -178,6 +183,9 @@ namespace BiletRezervasyon.Formlar
 
 
         }
+       
+        // sefer ekleme moduna alır
+
         void EklemeModu()
         {
 
@@ -188,9 +196,10 @@ namespace BiletRezervasyon.Formlar
 
 
 
-
-
         }
+
+        // seçili seferi silme ve guncelleme moduna alır
+
         void SilmeModu(DataGridViewCellEventArgs e)
         {
 
@@ -228,41 +237,17 @@ namespace BiletRezervasyon.Formlar
 
 
 
-        private void btnGuncelle_Click(object sender, EventArgs e)
+        
+       
+
+       // Seferler tablosunu günceller
+
+        void VerileriGuncelle()
         {
-
-            SeferGuncelle();
-
-        }
-        void SeferGuncelle() {
-
-            List<KabinMemuru> seciliKabinMemurlari = kabinMLB.Items.Cast<KabinMemuru>().ToList();
-            seciliSefer.SeferTarihi = datePicker.Value.Date + (TimeSpan)timePicker.Value.TimeOfDay;
-            seciliSefer.Ucak = Veriler.ucaklar.First(a => cmbUcak.Text == a.KuyrukNo);
-            seciliSefer.Rota = new Rota(cmbKalkis.Text, cmbVaris.Text);
-            seciliSefer.KabinMemurlari = seciliKabinMemurlari;
-            seciliSefer.Pilot = (Pilot)cmbPilot.SelectedItem;
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = Veriler.seferler;
-            VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
         }
-
-        void SeferSil() {
-
-            Veriler.seferler.Remove(seciliSefer);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = Veriler.seferler;
-            VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
-
-
-        }
-
-
-        private void btnSil_Click(object sender, EventArgs e)
-        {
-            SeferSil();
-
-        }
+        
     }
 }

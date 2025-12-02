@@ -46,11 +46,11 @@ namespace BiletRezervasyon.Formlar
             {
                
                 
-                // ROL KONTROLÜ
+                // rol kontrolü
                 
                  if (bulunanKullanici is Admin)
                 {
-                    // BU BİR ADMİN
+                    // adminse
                     MessageBox.Show("Admin girişi başarılı!");
                     AdminPaneli adminForm = new AdminPaneli(bulunanKullanici as Admin);
                     adminForm.Show();
@@ -58,7 +58,7 @@ namespace BiletRezervasyon.Formlar
                 }
                 else if (bulunanKullanici is Musteri)
                 {
-                    // BU BİR MÜŞTERİ
+                    // müşteriyse
                     MessageBox.Show("Müşteri girişi başarılı!");
                     MusteriPaneli musteriForm = new MusteriPaneli(bulunanKullanici as Musteri); // Müşteri bilgisini diğer forma yolla
                      musteriForm.Show();
