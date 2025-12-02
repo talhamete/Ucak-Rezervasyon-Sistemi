@@ -88,9 +88,13 @@ namespace BiletRezervasyon.Formlar
                 rezerveSilBtn.Enabled = false;
                 rezervasyonGuncelleBtn.Enabled = false;
                 rezervasyonlarGDV.ClearSelection();
-                return;
+               
             }
-            seciliRezervasyon = (Rezervasyon)rezervasyonlarGDV.Rows[e.RowIndex].DataBoundItem;
+            else
+            {
+                seciliRezervasyon = (Rezervasyon)rezervasyonlarGDV.Rows[e.RowIndex].DataBoundItem;
+
+            }
 
             if (seciliRezervasyon != null)
             {
