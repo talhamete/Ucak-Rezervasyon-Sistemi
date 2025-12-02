@@ -1,0 +1,20 @@
+[
+  {
+    "UcakID": 1,
+    "Model": "Boeing 737-800",
+    "Kapasite": 189,
+    "KuyrukNo": "TC-JHK"
+  },
+  {
+    "UcakID": 2,
+    "Model": "Airbus A320",
+    "Kapasite": 150,
+    "KuyrukNo": "TC-DBG"
+  },
+  {
+    "UcakID": 3,
+    "Model": "Boeing 777",
+    "Kapasite": 300,
+    "KuyrukNo": "TC-JJJ"
+  }
+]

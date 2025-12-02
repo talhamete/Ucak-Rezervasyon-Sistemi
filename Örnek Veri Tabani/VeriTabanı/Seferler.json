@@ -1,0 +1,2026 @@
+[
+  {
+    "SeferNo": 5879,
+    "SeferTarihi": "2025-12-02T18:33:49.7747606+03:00",
+    "Ucak": {
+      "UcakID": 3,
+      "Model": "Boeing 777",
+      "Kapasite": 300,
+      "KuyrukNo": "TC-JJJ"
+    },
+    "Rota": {
+      "KalkisYeri": "\u0130zmir",
+      "VarisYeri": "\u0130stanbul"
+    },
+    "KabinMemurlari": [
+      {
+        "ID": 4,
+        "Ad": "Zeynep",
+        "Soyad": "Kaya"
+      },
+      {
+        "ID": 5,
+        "Ad": "Can",
+        "Soyad": "Demir"
+      }
+    ],
+    "Pilot": {
+      "PilotLisansNo": 1262,
+      "ID": 1,
+      "Ad": "Ahmet",
+      "Soyad": "Kaptan"
+    },
+    "Koltuklar": [
+      {
+        "DoluMu": false,
+        "KoltukNo": 1
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 2
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 3
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 4
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 5
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 6
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 7
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 8
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 9
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 10
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 11
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 12
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 13
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 14
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 15
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 16
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 17
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 18
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 19
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 20
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 21
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 22
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 23
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 24
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 25
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 26
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 27
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 28
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 29
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 30
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 31
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 32
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 33
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 34
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 35
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 36
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 37
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 38
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 39
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 40
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 41
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 42
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 43
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 44
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 45
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 46
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 47
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 48
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 49
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 50
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 51
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 52
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 53
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 54
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 55
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 56
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 57
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 58
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 59
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 60
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 61
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 62
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 63
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 64
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 65
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 66
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 67
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 68
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 69
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 70
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 71
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 72
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 73
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 74
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 75
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 76
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 77
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 78
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 79
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 80
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 81
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 82
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 83
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 84
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 85
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 86
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 87
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 88
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 89
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 90
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 91
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 92
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 93
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 94
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 95
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 96
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 97
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 98
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 99
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 100
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 101
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 102
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 103
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 104
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 105
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 106
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 107
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 108
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 109
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 110
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 111
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 112
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 113
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 114
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 115
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 116
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 117
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 118
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 119
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 120
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 121
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 122
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 123
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 124
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 125
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 126
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 127
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 128
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 129
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 130
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 131
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 132
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 133
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 134
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 135
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 136
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 137
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 138
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 139
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 140
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 141
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 142
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 143
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 144
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 145
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 146
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 147
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 148
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 149
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 150
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 151
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 152
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 153
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 154
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 155
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 156
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 157
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 158
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 159
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 160
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 161
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 162
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 163
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 164
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 165
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 166
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 167
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 168
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 169
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 170
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 171
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 172
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 173
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 174
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 175
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 176
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 177
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 178
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 179
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 180
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 181
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 182
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 183
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 184
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 185
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 186
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 187
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 188
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 189
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 190
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 191
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 192
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 193
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 194
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 195
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 196
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 197
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 198
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 199
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 200
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 201
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 202
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 203
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 204
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 205
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 206
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 207
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 208
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 209
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 210
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 211
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 212
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 213
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 214
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 215
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 216
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 217
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 218
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 219
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 220
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 221
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 222
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 223
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 224
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 225
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 226
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 227
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 228
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 229
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 230
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 231
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 232
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 233
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 234
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 235
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 236
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 237
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 238
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 239
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 240
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 241
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 242
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 243
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 244
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 245
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 246
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 247
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 248
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 249
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 250
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 251
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 252
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 253
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 254
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 255
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 256
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 257
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 258
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 259
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 260
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 261
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 262
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 263
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 264
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 265
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 266
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 267
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 268
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 269
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 270
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 271
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 272
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 273
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 274
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 275
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 276
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 277
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 278
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 279
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 280
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 281
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 282
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 283
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 284
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 285
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 286
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 287
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 288
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 289
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 290
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 291
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 292
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 293
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 294
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 295
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 296
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 297
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 298
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 299
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 300
+      }
+    ]
+  },
+  {
+    "SeferNo": 7824,
+    "SeferTarihi": "2026-01-01T20:15:44.054",
+    "Ucak": {
+      "UcakID": 1,
+      "Model": "Boeing 737-800",
+      "Kapasite": 189,
+      "KuyrukNo": "TC-JHK"
+    },
+    "Rota": {
+      "KalkisYeri": "\u0130stanbul",
+      "VarisYeri": "Ankara"
+    },
+    "KabinMemurlari": [
+      {
+        "ID": 3,
+        "Ad": "Mehmet",
+        "Soyad": "Y\u0131lmaz"
+      },
+      {
+        "ID": 4,
+        "Ad": "Zeynep",
+        "Soyad": "Kaya"
+      }
+    ],
+    "Pilot": {
+      "PilotLisansNo": 5112,
+      "ID": 2,
+      "Ad": "Ay\u015Fe",
+      "Soyad": "G\u00F6k\u00E7en"
+    },
+    "Koltuklar": [
+      {
+        "DoluMu": false,
+        "KoltukNo": 1
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 2
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 3
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 4
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 5
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 6
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 7
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 8
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 9
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 10
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 11
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 12
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 13
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 14
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 15
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 16
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 17
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 18
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 19
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 20
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 21
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 22
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 23
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 24
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 25
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 26
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 27
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 28
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 29
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 30
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 31
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 32
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 33
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 34
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 35
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 36
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 37
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 38
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 39
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 40
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 41
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 42
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 43
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 44
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 45
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 46
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 47
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 48
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 49
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 50
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 51
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 52
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 53
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 54
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 55
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 56
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 57
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 58
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 59
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 60
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 61
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 62
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 63
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 64
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 65
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 66
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 67
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 68
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 69
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 70
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 71
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 72
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 73
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 74
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 75
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 76
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 77
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 78
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 79
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 80
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 81
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 82
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 83
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 84
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 85
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 86
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 87
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 88
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 89
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 90
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 91
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 92
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 93
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 94
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 95
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 96
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 97
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 98
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 99
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 100
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 101
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 102
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 103
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 104
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 105
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 106
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 107
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 108
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 109
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 110
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 111
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 112
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 113
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 114
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 115
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 116
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 117
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 118
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 119
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 120
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 121
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 122
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 123
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 124
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 125
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 126
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 127
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 128
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 129
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 130
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 131
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 132
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 133
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 134
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 135
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 136
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 137
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 138
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 139
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 140
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 141
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 142
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 143
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 144
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 145
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 146
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 147
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 148
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 149
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 150
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 151
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 152
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 153
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 154
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 155
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 156
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 157
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 158
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 159
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 160
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 161
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 162
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 163
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 164
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 165
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 166
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 167
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 168
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 169
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 170
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 171
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 172
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 173
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 174
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 175
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 176
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 177
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 178
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 179
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 180
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 181
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 182
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 183
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 184
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 185
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 186
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 187
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 188
+      },
+      {
+        "DoluMu": false,
+        "KoltukNo": 189
+      }
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "$type": "admin",
+    "ID": 1,
+    "KullaniciAdi": "admin",
+    "Sifre": "123",
+    "Ad": "Talha Mete",
+    "Soyad": "Yılmaz"
+  },
+  {
+    "$type": "musteri",
+    "TcNo": "11111111111",
+    "TelefonNo": "05432313255",
+    "Rezervasyonlar": [],
+    "ID": 2,
+    "KullaniciAdi": "musteri",
+    "Sifre": "123",
+    "Ad": "Ali",
+    "Soyad": "Veli"
+  }
+]

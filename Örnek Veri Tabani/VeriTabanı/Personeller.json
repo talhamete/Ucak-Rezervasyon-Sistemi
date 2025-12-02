@@ -1,0 +1,52 @@
+[
+  {
+    "$type": "pilot",
+    "PilotLisansNo": 1262,
+    "ID": 1,
+    "Ad": "Ahmet",
+    "Soyad": "Kaptan"
+  },
+  {
+    "$type": "pilot",
+    "PilotLisansNo": 5112,
+    "ID": 2,
+    "Ad": "Ay\u015Fe",
+    "Soyad": "G\u00F6k\u00E7en"
+  },
+  {
+    "$type": "kabinMemuru",
+    "ID": 3,
+    "Ad": "Mehmet",
+    "Soyad": "Y\u0131lmaz"
+  },
+  {
+    "$type": "kabinMemuru",
+    "ID": 4,
+    "Ad": "Zeynep",
+    "Soyad": "Kaya"
+  },
+  {
+    "$type": "kabinMemuru",
+    "ID": 5,
+    "Ad": "Can",
+    "Soyad": "Demir"
+  },
+  {
+    "$type": "kabinMemuru",
+    "ID": 6,
+    "Ad": "Veli",
+    "Soyad": "Kurt"
+  },
+  {
+    "$type": "kabinMemuru",
+    "ID": 7,
+    "Ad": "Niyazi",
+    "Soyad": "Gül"
+  },
+  {
+    "$type": "kabinMemuru",
+    "ID": 8,
+    "Ad": "İbrahim",
+    "Soyad": "Tatlıses"
+  }
+]
