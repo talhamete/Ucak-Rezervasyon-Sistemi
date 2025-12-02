@@ -24,6 +24,15 @@ namespace BiletRezervasyon.Varlıklar
 
             Veriler.seferler.Remove(sefer);
             VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
+            Veriler.kullanicilar.ForEach(k =>
+            {
+                if(k is Musteri)
+                if (((Musteri)k).Rezervasyonlar != null)            //Sefer silindiğin o sefere rezervasyon alanların rezervasyonlarını da siler
+                    {                                                       
+                        ((Musteri)k).Rezervasyonlar.RemoveAll(r => r.Sefer.SeferNo == sefer.SeferNo); 
+                }
+            });
+            VeriYonetimiServisi.KullanicilariKaydet(Veriler.kullanicilar);
 
 
         }
