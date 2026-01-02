@@ -26,7 +26,7 @@ namespace BiletRezervasyon.Formlar
             Veriler.ucaklar = VeriYonetimiServisi.UcaklariYukle();
             Veriler.kullanicilar = VeriYonetimiServisi.KullanicilariYukle();
 
-       
+
 
         }
 
@@ -44,25 +44,25 @@ namespace BiletRezervasyon.Formlar
             //  Kullanıcı bulundu mu?
             if (bulunanKullanici != null)
             {
-               
-                
+
+
                 // rol kontrolü
-                
-                 if (bulunanKullanici is Admin)
+
+                if (bulunanKullanici is Admin)
                 {
                     // adminse
                     MessageBox.Show("Admin girişi başarılı!");
                     AdminPaneli adminForm = new AdminPaneli(bulunanKullanici as Admin);
                     adminForm.Show();
-                    this.Hide(); 
+                    this.Hide();
                 }
                 else if (bulunanKullanici is Musteri)
                 {
                     // müşteriyse
                     MessageBox.Show("Müşteri girişi başarılı!");
                     MusteriPaneli musteriForm = new MusteriPaneli(bulunanKullanici as Musteri); // Müşteri bilgisini diğer forma yolla
-                     musteriForm.Show();
-                     this.Hide(); 
+                    musteriForm.Show();
+                    this.Hide();
                 }
             }
             else
@@ -71,6 +71,8 @@ namespace BiletRezervasyon.Formlar
                 MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+      
     }
 
 
