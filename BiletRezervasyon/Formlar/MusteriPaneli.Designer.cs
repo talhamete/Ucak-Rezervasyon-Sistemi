@@ -36,6 +36,7 @@
             rezerveEtBtn = new Button();
             rezerveSilBtn = new Button();
             rezervasyonGuncelleBtn = new Button();
+            cksBtn = new ReaLTaiizor.Controls.HopeButton();
             ((System.ComponentModel.ISupportInitialize)seferlerDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rezervasyonlarGDV).BeginInit();
             SuspendLayout();
@@ -126,11 +127,32 @@
             rezervasyonGuncelleBtn.UseVisualStyleBackColor = true;
             rezervasyonGuncelleBtn.Click += rezervasyonGuncelleBtn_Click;
             // 
+            // cksBtn
+            // 
+            cksBtn.BorderColor = Color.FromArgb(220, 223, 230);
+            cksBtn.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            cksBtn.DangerColor = Color.FromArgb(245, 108, 108);
+            cksBtn.DefaultColor = Color.FromArgb(255, 255, 255);
+            cksBtn.Font = new Font("Segoe UI", 12F);
+            cksBtn.HoverTextColor = Color.FromArgb(48, 49, 51);
+            cksBtn.InfoColor = Color.FromArgb(144, 147, 153);
+            cksBtn.Location = new Point(872, 677);
+            cksBtn.Name = "cksBtn";
+            cksBtn.PrimaryColor = Color.FromArgb(64, 158, 255);
+            cksBtn.Size = new Size(90, 50);
+            cksBtn.SuccessColor = Color.FromArgb(103, 194, 58);
+            cksBtn.TabIndex = 8;
+            cksBtn.Text = "Çıkış";
+            cksBtn.TextColor = Color.White;
+            cksBtn.WarningColor = Color.FromArgb(230, 162, 60);
+            cksBtn.Click += hopeButton1_Click;
+            // 
             // MusteriPaneli
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 739);
+            Controls.Add(cksBtn);
             Controls.Add(rezervasyonGuncelleBtn);
             Controls.Add(rezerveSilBtn);
             Controls.Add(rezerveEtBtn);
@@ -158,5 +180,6 @@
         private Button rezerveEtBtn;
         private Button rezerveSilBtn;
         private Button rezervasyonGuncelleBtn;
+        private ReaLTaiizor.Controls.HopeButton cksBtn;
     }
 }

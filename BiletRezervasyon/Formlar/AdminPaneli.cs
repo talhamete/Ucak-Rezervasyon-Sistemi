@@ -7,7 +7,7 @@ namespace BiletRezervasyon.Formlar
 {
     public partial class AdminPaneli : Form
     {
-        
+
         Admin curAdmin;
 
         Sefer seciliSefer;
@@ -59,9 +59,9 @@ namespace BiletRezervasyon.Formlar
             List<KabinMemuru> seciliKabinMemurlari = kabinMLB.Items.Cast<KabinMemuru>().ToList();
             Sefer yeniSefer = new Sefer(datePicker.Value.Date + (TimeSpan)timePicker.Value.TimeOfDay, (Ucak)cmbUcak.SelectedItem,
                 new Rota(cmbKalkis.Text, cmbVaris.Text), seciliKabinMemurlari, (Pilot)cmbPilot.SelectedItem);
-            
-            
-            curAdmin.SeferGuncelle(seciliSefer,yeniSefer);
+
+
+            curAdmin.SeferGuncelle(seciliSefer, yeniSefer);
             int seferNo = seciliSefer.SeferNo; // message box için geçiçi değişken
             VerileriGuncelle();
             MessageBox.Show($"Sefer {seferNo} başarıyla güncellendi.");
@@ -106,15 +106,30 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
+
+        private void BtnVeriYonetimi_Click(object sender, EventArgs e)
+        {
+            FormVeriYonetimi veriYonetim = new FormVeriYonetimi();
+            veriYonetim.Show();
+            this.Hide();
+        }
+
+
+
+
         // uçak seçildiğinde kapasite ve model bilgilerini doldur
         private void cmbUcak_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbUcak.SelectedItem != null) { 
-            int selectedIndex = cmbUcak.SelectedIndex;
-            ucakKapasiteTB.Text = VeriYonetimiServisi.UcaklariYukle()[selectedIndex].Kapasite.ToString();
-            ucakModelTB.Text = VeriYonetimiServisi.UcaklariYukle()[selectedIndex].Model.ToString();
+            if (cmbUcak.SelectedItem != null)
+            {
+                int selectedIndex = cmbUcak.SelectedIndex;
+                ucakKapasiteTB.Text = VeriYonetimiServisi.UcaklariYukle()[selectedIndex].Kapasite.ToString();
+                ucakModelTB.Text = VeriYonetimiServisi.UcaklariYukle()[selectedIndex].Model.ToString();
+            }
         }
-        }
+
+
+
 
 
         // input kontrol
@@ -125,13 +140,13 @@ namespace BiletRezervasyon.Formlar
             {
                 MessageBox.Show("Boş alanlar var!");
             }
-            else if(cmbKalkis.Text == cmbVaris.Text)
+            else if (cmbKalkis.Text == cmbVaris.Text)
             {
                 MessageBox.Show("Kalkış - Varış aynı olamaz!");
                 return false;
             }
 
-                return kontrol;
+            return kontrol;
         }
 
         // verileri yükle ve listele, başta bir kere çalışır 
@@ -202,7 +217,7 @@ namespace BiletRezervasyon.Formlar
 
 
         }
-       
+
         // sefer ekleme moduna alır
 
         void EklemeModu()
@@ -255,10 +270,10 @@ namespace BiletRezervasyon.Formlar
 
 
 
-        
-       
 
-       // Seferler tablosunu günceller
+
+
+        // Seferler tablosunu günceller
 
         void VerileriGuncelle()
         {
@@ -271,5 +286,13 @@ namespace BiletRezervasyon.Formlar
 
         }
 
+        private void cksBtn_Click(object sender, EventArgs e)
+        {
+          
+            this.Hide();
+            FormGiris girisForm = new FormGiris();
+            girisForm.Show();
+        
+    }
     }
 }

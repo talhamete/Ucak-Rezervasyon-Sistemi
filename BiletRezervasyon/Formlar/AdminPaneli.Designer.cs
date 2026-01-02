@@ -55,6 +55,8 @@
             label10 = new Label();
             timePicker = new DateTimePicker();
             groupBox1 = new GroupBox();
+            BtnVeriYonetimi = new Button();
+            cksBtn = new ReaLTaiizor.Controls.HopeButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -142,7 +144,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(265, 317);
+            label4.Location = new Point(23, 90);
             label4.Name = "label4";
             label4.Size = new Size(119, 20);
             label4.TabIndex = 11;
@@ -151,7 +153,7 @@
             // kabinMLB
             // 
             kabinMLB.FormattingEnabled = true;
-            kabinMLB.Location = new Point(388, 351);
+            kabinMLB.Location = new Point(23, 123);
             kabinMLB.Name = "kabinMLB";
             kabinMLB.Size = new Size(125, 104);
             kabinMLB.TabIndex = 12;
@@ -197,7 +199,7 @@
             // 
             cmbKabinM.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbKabinM.FormattingEnabled = true;
-            cmbKabinM.Location = new Point(389, 317);
+            cmbKabinM.Location = new Point(148, 87);
             cmbKabinM.Name = "cmbKabinM";
             cmbKabinM.Size = new Size(89, 28);
             cmbKabinM.TabIndex = 19;
@@ -305,6 +307,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cksBtn);
+            groupBox1.Controls.Add(BtnVeriYonetimi);
             groupBox1.Controls.Add(timePicker);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(label9);
@@ -335,6 +339,36 @@
             groupBox1.Size = new Size(531, 475);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
+            // 
+            // BtnVeriYonetimi
+            // 
+            BtnVeriYonetimi.Location = new Point(21, 24);
+            BtnVeriYonetimi.Name = "BtnVeriYonetimi";
+            BtnVeriYonetimi.Size = new Size(110, 29);
+            BtnVeriYonetimi.TabIndex = 31;
+            BtnVeriYonetimi.Text = "Veri Yönetimi";
+            BtnVeriYonetimi.UseVisualStyleBackColor = true;
+            BtnVeriYonetimi.Click += BtnVeriYonetimi_Click;
+            // 
+            // cksBtn
+            // 
+            cksBtn.BorderColor = Color.FromArgb(220, 223, 230);
+            cksBtn.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            cksBtn.DangerColor = Color.FromArgb(245, 108, 108);
+            cksBtn.DefaultColor = Color.FromArgb(255, 255, 255);
+            cksBtn.Font = new Font("Segoe UI", 12F);
+            cksBtn.HoverTextColor = Color.FromArgb(48, 49, 51);
+            cksBtn.InfoColor = Color.FromArgb(144, 147, 153);
+            cksBtn.Location = new Point(373, 405);
+            cksBtn.Name = "cksBtn";
+            cksBtn.PrimaryColor = Color.FromArgb(64, 158, 255);
+            cksBtn.Size = new Size(90, 50);
+            cksBtn.SuccessColor = Color.FromArgb(103, 194, 58);
+            cksBtn.TabIndex = 32;
+            cksBtn.Text = "Çıkış";
+            cksBtn.TextColor = Color.White;
+            cksBtn.WarningColor = Color.FromArgb(230, 162, 60);
+            cksBtn.Click += cksBtn_Click;
             // 
             // AdminPaneli
             // 
@@ -381,5 +415,7 @@
         private Label label10;
         private DateTimePicker timePicker;
         private GroupBox groupBox1;
+        private Button BtnVeriYonetimi;
+        private ReaLTaiizor.Controls.HopeButton cksBtn;
     }
 }

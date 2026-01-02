@@ -43,15 +43,15 @@ namespace BiletRezervasyon.Formlar
                 MessageBox.Show("Lütfen bir koltuk seçin ve sefer seçtiğinizden emin olun.");
                 return;
             }
-            
+
             Rezervasyon yeniRezerve = new Rezervasyon(curMusteri, seciliSefer, (Koltuk)koltukCMB.SelectedItem);
-            
+
             curMusteri.RezerveEt(yeniRezerve);
             VerileriGuncelle();
             MessageBox.Show($"{yeniRezerve.Sefer}-{yeniRezerve.Koltuk}\r\nRezervasyon başarılı!");
 
         }
-       
+
         private void rezerveSilBtn_Click(object sender, EventArgs e) // rezervasyon silme butonu
         {
             Rezervasyon silinenRez = seciliRezervasyon;
@@ -60,7 +60,7 @@ namespace BiletRezervasyon.Formlar
             VerileriGuncelle();
             MessageBox.Show($"{silinenRez.Sefer}-{silinenRez.Koltuk}\r\nRezervasyon silindi!");
         }
-        
+
         private void rezervasyonGuncelleBtn_Click(object sender, EventArgs e) // rezervasyon güncelleme butonu
         {
             Koltuk eskiKoltuk = seciliRezervasyon.Koltuk;
@@ -77,7 +77,7 @@ namespace BiletRezervasyon.Formlar
             koltukCMB.SelectedItem = null;
 
         }
-       
+
 
 
         private void rezervasyonlarGDV_CellClick(object sender, DataGridViewCellEventArgs e) // rezervasyon seçildiğinde çalışan, secili rezervasyonu atayan ve ona göre koltukCMB yi dolduran fonksiyon
@@ -88,7 +88,7 @@ namespace BiletRezervasyon.Formlar
                 rezerveSilBtn.Enabled = false;
                 rezervasyonGuncelleBtn.Enabled = false;
                 rezervasyonlarGDV.ClearSelection();
-               
+
             }
             else
             {
@@ -163,7 +163,11 @@ namespace BiletRezervasyon.Formlar
 
         }
 
-       
-        
+        private void hopeButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormGiris girisForm = new FormGiris();
+            girisForm.Show();
+        }
     }
 }
