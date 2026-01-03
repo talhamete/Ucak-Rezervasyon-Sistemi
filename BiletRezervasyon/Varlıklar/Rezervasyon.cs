@@ -12,6 +12,7 @@ namespace BiletRezervasyon.Varlıklar
         public Sefer Sefer { get; set; }
         public DateTime RezervasyonTarihi { get; set; }
         public Koltuk Koltuk { get; set; }
+        public decimal OdenenFiyat { get; set; }
 
         public Rezervasyon() { } 
 
@@ -22,6 +23,7 @@ namespace BiletRezervasyon.Varlıklar
             this.Sefer = sefer;
             this.RezervasyonTarihi = DateTime.Now;
             this.Koltuk = koltuk;
+            this.OdenenFiyat = sefer.GuncelFiyat;
         }
 
 

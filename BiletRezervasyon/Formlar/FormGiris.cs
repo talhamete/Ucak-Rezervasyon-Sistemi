@@ -14,8 +14,6 @@ namespace BiletRezervasyon.Formlar
 {
     public partial class FormGiris : Form
     {
-
-
         public FormGiris()
         {
             InitializeComponent();
@@ -26,8 +24,36 @@ namespace BiletRezervasyon.Formlar
             Veriler.ucaklar = VeriYonetimiServisi.UcaklariYukle();
             Veriler.kullanicilar = VeriYonetimiServisi.KullanicilariYukle();
 
+            // Tarihi geçmiş seferleri temizle
+            GecmisSeferleriSil();
+        }
 
+        private void GecmisSeferleriSil()
+        {
+            DateTime bugun = DateTime.Now;
+            List<Sefer> gecmisSeferler = Veriler.seferler.Where(s => s.SeferTarihi < bugun).ToList();
 
+            foreach (Sefer sefer in gecmisSeferler)
+            {
+                // Rezervasyonları temizle
+                Veriler.kullanicilar.ForEach(k =>
+                {
+                    if (k is Musteri musteri && musteri.Rezervasyonlar != null)
+                    {
+                        musteri.Rezervasyonlar.RemoveAll(r => r.Sefer.SeferNo == sefer.SeferNo);
+                    }
+                });
+
+                // Seferi sil
+                Veriler.seferler.Remove(sefer);
+            }
+
+            // Kaydet
+            if (gecmisSeferler.Count > 0)
+            {
+                VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
+                VeriYonetimiServisi.KullanicilariKaydet(Veriler.kullanicilar);
+            }
         }
 
         private void btnGirisYap_Click(object sender, EventArgs e)
@@ -74,8 +100,9 @@ namespace BiletRezervasyon.Formlar
 
         private void kayitBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-
+            FormKayıt kayitForm = new FormKayıt();
+            kayitForm.Show();
+            this.Hide();
         }
     }
 

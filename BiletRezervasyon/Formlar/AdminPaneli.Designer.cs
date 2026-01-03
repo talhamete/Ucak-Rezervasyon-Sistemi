@@ -31,7 +31,9 @@
             hopeForm1 = new ReaLTaiizor.Forms.HopeForm();
             dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            label11 = new Label();
             timePicker = new DateTimePicker();
+            BtnVeriYonetimi = new ReaLTaiizor.Controls.HopeButton();
             label10 = new Label();
             label9 = new Label();
             datePicker = new DateTimePicker();
@@ -57,8 +59,8 @@
             btnGuncelle = new ReaLTaiizor.Controls.HopeButton();
             btnSil = new ReaLTaiizor.Controls.HopeButton();
             cksBtn = new ReaLTaiizor.Controls.HopeButton();
-            BtnVeriYonetimi = new ReaLTaiizor.Controls.HopeButton();
             labelBaslik = new Label();
+            fiyatTB = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -96,6 +98,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(fiyatTB);
+            groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(timePicker);
             groupBox1.Controls.Add(BtnVeriYonetimi);
             groupBox1.Controls.Add(label10);
@@ -132,6 +136,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Sefer Bilgileri";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 10F);
+            label11.Location = new Point(16, 353);
+            label11.Name = "label11";
+            label11.Size = new Size(85, 23);
+            label11.TabIndex = 26;
+            label11.Text = "Base Fiyat";
+            // 
             // timePicker
             // 
             timePicker.CustomFormat = "HH:mm";
@@ -142,6 +156,26 @@
             timePicker.ShowUpDown = true;
             timePicker.Size = new Size(180, 30);
             timePicker.TabIndex = 9;
+            // 
+            // BtnVeriYonetimi
+            // 
+            BtnVeriYonetimi.BorderColor = Color.FromArgb(220, 223, 230);
+            BtnVeriYonetimi.ButtonType = ReaLTaiizor.Util.HopeButtonType.Warning;
+            BtnVeriYonetimi.DangerColor = Color.FromArgb(245, 108, 108);
+            BtnVeriYonetimi.DefaultColor = Color.FromArgb(255, 255, 255);
+            BtnVeriYonetimi.Font = new Font("Segoe UI", 12F);
+            BtnVeriYonetimi.HoverTextColor = Color.FromArgb(48, 49, 51);
+            BtnVeriYonetimi.InfoColor = Color.FromArgb(144, 147, 153);
+            BtnVeriYonetimi.Location = new Point(16, 540);
+            BtnVeriYonetimi.Name = "BtnVeriYonetimi";
+            BtnVeriYonetimi.PrimaryColor = Color.FromArgb(64, 158, 255);
+            BtnVeriYonetimi.Size = new Size(160, 50);
+            BtnVeriYonetimi.SuccessColor = Color.FromArgb(103, 194, 58);
+            BtnVeriYonetimi.TabIndex = 15;
+            BtnVeriYonetimi.Text = "Veri Yönetimi";
+            BtnVeriYonetimi.TextColor = Color.White;
+            BtnVeriYonetimi.WarningColor = Color.FromArgb(230, 162, 60);
+            BtnVeriYonetimi.Click += BtnVeriYonetimi_Click;
             // 
             // label10
             // 
@@ -439,26 +473,6 @@
             cksBtn.WarningColor = Color.FromArgb(230, 162, 60);
             cksBtn.Click += cksBtn_Click;
             // 
-            // BtnVeriYonetimi
-            // 
-            BtnVeriYonetimi.BorderColor = Color.FromArgb(220, 223, 230);
-            BtnVeriYonetimi.ButtonType = ReaLTaiizor.Util.HopeButtonType.Warning;
-            BtnVeriYonetimi.DangerColor = Color.FromArgb(245, 108, 108);
-            BtnVeriYonetimi.DefaultColor = Color.FromArgb(255, 255, 255);
-            BtnVeriYonetimi.Font = new Font("Segoe UI", 12F);
-            BtnVeriYonetimi.HoverTextColor = Color.FromArgb(48, 49, 51);
-            BtnVeriYonetimi.InfoColor = Color.FromArgb(144, 147, 153);
-            BtnVeriYonetimi.Location = new Point(16, 540);
-            BtnVeriYonetimi.Name = "BtnVeriYonetimi";
-            BtnVeriYonetimi.PrimaryColor = Color.FromArgb(64, 158, 255);
-            BtnVeriYonetimi.Size = new Size(160, 50);
-            BtnVeriYonetimi.SuccessColor = Color.FromArgb(103, 194, 58);
-            BtnVeriYonetimi.TabIndex = 15;
-            BtnVeriYonetimi.Text = "Veri Yönetimi";
-            BtnVeriYonetimi.TextColor = Color.White;
-            BtnVeriYonetimi.WarningColor = Color.FromArgb(230, 162, 60);
-            BtnVeriYonetimi.Click += BtnVeriYonetimi_Click;
-            // 
             // labelBaslik
             // 
             labelBaslik.AutoSize = true;
@@ -469,6 +483,15 @@
             labelBaslik.Size = new Size(163, 28);
             labelBaslik.TabIndex = 3;
             labelBaslik.Text = "Mevcut Seferler";
+            // 
+            // fiyatTB
+            // 
+            fiyatTB.Font = new Font("Segoe UI", 10F);
+            fiyatTB.Location = new Point(150, 353);
+            fiyatTB.Name = "fiyatTB";
+            fiyatTB.Size = new Size(180, 30);
+            fiyatTB.TabIndex = 27;
+            fiyatTB.TabStop = false;
             // 
             // AdminPaneli
             // 
@@ -527,5 +550,7 @@
         private ReaLTaiizor.Controls.HopeButton BtnVeriYonetimi;
         private ReaLTaiizor.Controls.HopeButton cksBtn;
         private Label labelBaslik;
+        private Label label11;
+        private TextBox fiyatTB;
     }
 }

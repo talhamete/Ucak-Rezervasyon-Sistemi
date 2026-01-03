@@ -34,6 +34,7 @@
             label1 = new Label();
             label2 = new Label();
             groupBox1 = new GroupBox();
+            fiyatlbl = new Label();
             labelKoltuk = new Label();
             koltukCMB = new ComboBox();
             rezerveEtBtn = new ReaLTaiizor.Controls.HopeButton();
@@ -115,6 +116,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(fiyatlbl);
             groupBox1.Controls.Add(labelKoltuk);
             groupBox1.Controls.Add(koltukCMB);
             groupBox1.Controls.Add(rezerveEtBtn);
@@ -129,6 +131,16 @@
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "İşlemler";
+            // 
+            // fiyatlbl
+            // 
+            fiyatlbl.AutoSize = true;
+            fiyatlbl.Font = new Font("Segoe UI", 11F);
+            fiyatlbl.Location = new Point(7, 105);
+            fiyatlbl.Name = "fiyatlbl";
+            fiyatlbl.Size = new Size(51, 25);
+            fiyatlbl.TabIndex = 6;
+            fiyatlbl.Text = "Fiyat";
             // 
             // labelKoltuk
             // 
@@ -160,7 +172,7 @@
             rezerveEtBtn.Font = new Font("Segoe UI", 12F);
             rezerveEtBtn.HoverTextColor = Color.FromArgb(48, 49, 51);
             rezerveEtBtn.InfoColor = Color.FromArgb(144, 147, 153);
-            rezerveEtBtn.Location = new Point(15, 115);
+            rezerveEtBtn.Location = new Point(15, 351);
             rezerveEtBtn.Name = "rezerveEtBtn";
             rezerveEtBtn.PrimaryColor = Color.FromArgb(64, 158, 255);
             rezerveEtBtn.Size = new Size(220, 50);
@@ -181,7 +193,7 @@
             rezervasyonGuncelleBtn.Font = new Font("Segoe UI", 12F);
             rezervasyonGuncelleBtn.HoverTextColor = Color.FromArgb(48, 49, 51);
             rezervasyonGuncelleBtn.InfoColor = Color.FromArgb(144, 147, 153);
-            rezervasyonGuncelleBtn.Location = new Point(15, 171);
+            rezervasyonGuncelleBtn.Location = new Point(15, 407);
             rezervasyonGuncelleBtn.Name = "rezervasyonGuncelleBtn";
             rezervasyonGuncelleBtn.PrimaryColor = Color.FromArgb(64, 158, 255);
             rezervasyonGuncelleBtn.Size = new Size(220, 50);
@@ -202,7 +214,7 @@
             rezerveSilBtn.Font = new Font("Segoe UI", 12F);
             rezerveSilBtn.HoverTextColor = Color.FromArgb(48, 49, 51);
             rezerveSilBtn.InfoColor = Color.FromArgb(144, 147, 153);
-            rezerveSilBtn.Location = new Point(15, 230);
+            rezerveSilBtn.Location = new Point(15, 466);
             rezerveSilBtn.Name = "rezerveSilBtn";
             rezerveSilBtn.PrimaryColor = Color.FromArgb(64, 158, 255);
             rezerveSilBtn.Size = new Size(220, 50);
@@ -274,5 +286,7 @@
         private ReaLTaiizor.Controls.HopeButton rezerveSilBtn;
         private ReaLTaiizor.Controls.HopeButton rezervasyonGuncelleBtn;
         private ReaLTaiizor.Controls.HopeButton cksBtn;
+        private Label fiyatlbl;
+        private TextBox fiyatTB;
     }
 }

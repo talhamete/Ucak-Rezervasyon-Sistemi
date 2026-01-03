@@ -45,6 +45,7 @@ namespace BiletRezervasyon.Varlıklar
             sefer.Rota = yeniSefer.Rota;
             sefer.KabinMemurlari = yeniSefer.KabinMemurlari;
             sefer.Pilot = yeniSefer.Pilot;
+            sefer.BaseFiyat = yeniSefer.BaseFiyat;
             VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
         }
 
