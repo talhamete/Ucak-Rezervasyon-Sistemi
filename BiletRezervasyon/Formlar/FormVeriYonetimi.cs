@@ -257,7 +257,7 @@ namespace BiletRezervasyon.Formlar
             if (seciliKullanici is Musteri musteri)
             {
                 int rezervasyonSayisi = musteri.Rezervasyonlar?.Count ?? 0;
-                
+
                 var result = MessageBox.Show(
                     $"'{seciliKullanici.KullaniciAdi}' kullanýcýsýný silmek istediðinizden emin misiniz?\n\n" +
                     $"Bu müþteriye ait {rezervasyonSayisi} rezervasyon silinecek ve koltuklar boþa düþecek!",
@@ -288,7 +288,7 @@ namespace BiletRezervasyon.Formlar
                                 }
                             }
                         }
-                        
+
                         musteri.Rezervasyonlar.Clear();
                     }
 
@@ -301,13 +301,13 @@ namespace BiletRezervasyon.Formlar
                         {
                             musteriHedef.Rezervasyonlar.Clear();
                         }
-                        
+
                         list.Remove(hedef);
                         VeriYonetimiServisi.KullanicilariKaydet(list);
-                        
+
                         // Seferleri kaydet (koltuk durumlarý güncellendiði için)
                         VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
-                        
+
                         Veriler.kullanicilar = list;
                         MessageBox.Show($"Kullanýcý ve {rezervasyonSayisi} rezervasyon baþarýyla silindi.");
                         VerileriGuncelle();
@@ -332,7 +332,7 @@ namespace BiletRezervasyon.Formlar
                         list.Remove(hedef);
                         VeriYonetimiServisi.KullanicilariKaydet(list);
                         Veriler.kullanicilar = list;
-                
+
                         MessageBox.Show("Kullanýcý baþarýyla silindi.");
                         VerileriGuncelle();
                     }
@@ -493,7 +493,7 @@ namespace BiletRezervasyon.Formlar
             // Bu uçaðý kullanan seferleri bul
             var etkilenenSeferler = Veriler.seferler.Where(s => s.Ucak.UcakID == seciliUcak.UcakID).ToList();
             int seferSayisi = etkilenenSeferler.Count;
-            
+
             // Etkilenen rezervasyonlarý say
             int rezervasyonSayisi = 0;
             foreach (var sefer in etkilenenSeferler)
@@ -809,8 +809,8 @@ namespace BiletRezervasyon.Formlar
 
             return true;
         }
-        
-         private void cksBtn_Click(object sender, EventArgs e)
+
+        private void cksBtn_Click(object sender, EventArgs e)
         {
 
             this.Hide();
@@ -818,8 +818,13 @@ namespace BiletRezervasyon.Formlar
             girisForm.Show();
 
         }
-    
+
 
         #endregion
+
+        private void tabKullanici_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
