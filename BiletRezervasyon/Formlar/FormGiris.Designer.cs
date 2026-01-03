@@ -35,6 +35,7 @@
             txtKullaniciAdi = new ReaLTaiizor.Controls.HopeTextBox();
             hopeContextMenuStrip1 = new ReaLTaiizor.Controls.HopeContextMenuStrip();
             btnGirisYap = new ReaLTaiizor.Controls.HopeButton();
+            kayitBtn = new ReaLTaiizor.Controls.HopeButton();
             SuspendLayout();
             // 
             // kullaniciadi
@@ -135,7 +136,7 @@
             btnGirisYap.Font = new Font("Segoe UI", 12F);
             btnGirisYap.HoverTextColor = Color.FromArgb(48, 49, 51);
             btnGirisYap.InfoColor = Color.FromArgb(144, 147, 153);
-            btnGirisYap.Location = new Point(355, 314);
+            btnGirisYap.Location = new Point(355, 289);
             btnGirisYap.Name = "btnGirisYap";
             btnGirisYap.PrimaryColor = Color.FromArgb(64, 158, 255);
             btnGirisYap.Size = new Size(150, 50);
@@ -146,11 +147,32 @@
             btnGirisYap.WarningColor = Color.FromArgb(230, 162, 60);
             btnGirisYap.Click += btnGirisYap_Click;
             // 
+            // kayitBtn
+            // 
+            kayitBtn.BorderColor = Color.FromArgb(220, 223, 230);
+            kayitBtn.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            kayitBtn.DangerColor = Color.FromArgb(245, 108, 108);
+            kayitBtn.DefaultColor = Color.FromArgb(255, 255, 255);
+            kayitBtn.Font = new Font("Segoe UI", 12F);
+            kayitBtn.HoverTextColor = Color.FromArgb(48, 49, 51);
+            kayitBtn.InfoColor = Color.FromArgb(144, 147, 153);
+            kayitBtn.Location = new Point(355, 373);
+            kayitBtn.Name = "kayitBtn";
+            kayitBtn.PrimaryColor = Color.FromArgb(230, 162, 60);
+            kayitBtn.Size = new Size(150, 50);
+            kayitBtn.SuccessColor = Color.FromArgb(103, 194, 58);
+            kayitBtn.TabIndex = 10;
+            kayitBtn.Text = "Kayıt Ol";
+            kayitBtn.TextColor = Color.White;
+            kayitBtn.WarningColor = Color.FromArgb(230, 162, 60);
+            kayitBtn.Click += kayitBtn_Click;
+            // 
             // FormGiris
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 475);
+            Controls.Add(kayitBtn);
             Controls.Add(btnGirisYap);
             Controls.Add(txtKullaniciAdi);
             Controls.Add(hopeForm1);
@@ -163,7 +185,7 @@
             Name = "FormGiris";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "dungeonForm1";
+            Text = "login";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,5 +199,6 @@
         private ReaLTaiizor.Controls.HopeTextBox txtKullaniciAdi;
         private ReaLTaiizor.Controls.HopeContextMenuStrip hopeContextMenuStrip1;
         private ReaLTaiizor.Controls.HopeButton btnGirisYap;
+        private ReaLTaiizor.Controls.HopeButton kayitBtn;
     }
 }

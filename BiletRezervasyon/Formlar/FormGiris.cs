@@ -72,7 +72,11 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
-      
+        private void kayitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 
 

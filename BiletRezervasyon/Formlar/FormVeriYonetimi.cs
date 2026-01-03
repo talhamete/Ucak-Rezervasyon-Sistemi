@@ -814,8 +814,8 @@ namespace BiletRezervasyon.Formlar
         {
 
             this.Hide();
-            FormGiris girisForm = new FormGiris();
-            girisForm.Show();
+            AdminPaneli adminForm = new AdminPaneli();
+            adminForm.Show();
 
         }
 
