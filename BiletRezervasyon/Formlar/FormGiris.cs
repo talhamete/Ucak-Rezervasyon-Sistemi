@@ -14,6 +14,7 @@ namespace BiletRezervasyon.Formlar
 {
     public partial class FormGiris : Form
     {
+        // form açılışı: bileşenleri hazırla, verileri yükle, geçmiş seferleri temizle
         public FormGiris()
         {
             InitializeComponent();
@@ -24,10 +25,11 @@ namespace BiletRezervasyon.Formlar
             Veriler.ucaklar = VeriYonetimiServisi.UcaklariYukle();
             Veriler.kullanicilar = VeriYonetimiServisi.KullanicilariYukle();
 
-            // Tarihi geçmiş seferleri temizle
+            // geçmiş seferleri sil
             GecmisSeferleriSil();
         }
 
+        // tarihi geçmiş seferleri ve onlara bağlı rezervasyonları kaldır
         private void GecmisSeferleriSil()
         {
             DateTime bugun = DateTime.Now;
@@ -35,7 +37,7 @@ namespace BiletRezervasyon.Formlar
 
             foreach (Sefer sefer in gecmisSeferler)
             {
-                // Rezervasyonları temizle
+                // kullanıcılardaki ilgili rezervasyonları sil
                 Veriler.kullanicilar.ForEach(k =>
                 {
                     if (k is Musteri musteri && musteri.Rezervasyonlar != null)
@@ -44,11 +46,11 @@ namespace BiletRezervasyon.Formlar
                     }
                 });
 
-                // Seferi sil
+                // seferi listeden kaldır
                 Veriler.seferler.Remove(sefer);
             }
 
-            // Kaydet
+            // değişiklik varsa dosyaya yaz
             if (gecmisSeferler.Count > 0)
             {
                 VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
@@ -56,48 +58,43 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
+        // giriş butonu: kullanıcıyı bul ve uygun panele geç
         private void btnGirisYap_Click(object sender, EventArgs e)
         {
-            // Textbox'lardan verileri al
             string girilenKullaniciAdi = txtKullaniciAdi.Text;
             string girilenSifre = txtSifre.Text;
 
-            //  Listemizde bu kullanıcıyı ara
             Kullanici bulunanKullanici = Veriler.kullanicilar.FirstOrDefault(k =>
                 k.KullaniciAdi == girilenKullaniciAdi &&
                 k.Sifre == girilenSifre);
 
-            //  Kullanıcı bulundu mu?
             if (bulunanKullanici != null)
             {
-
-
-                // rol kontrolü
-
+                // admin ise
                 if (bulunanKullanici is Admin)
                 {
-                    // adminse
                     MessageBox.Show("Admin girişi başarılı!");
                     AdminPaneli adminForm = new AdminPaneli(bulunanKullanici as Admin);
                     adminForm.Show();
                     this.Hide();
                 }
+                // müşteri ise
                 else if (bulunanKullanici is Musteri)
                 {
-                    // müşteriyse
                     MessageBox.Show("Müşteri girişi başarılı!");
-                    MusteriPaneli musteriForm = new MusteriPaneli(bulunanKullanici as Musteri); // Müşteri bilgisini diğer forma yolla
+                    MusteriPaneli musteriForm = new MusteriPaneli(bulunanKullanici as Musteri);
                     musteriForm.Show();
                     this.Hide();
                 }
             }
             else
             {
-                // Kullanıcı bulunamadı veya şifre yanlış
+                // hatalı giriş
                 MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // kayıt butonu: kayıt formunu aç
         private void kayitBtn_Click(object sender, EventArgs e)
         {
             FormKayıt kayitForm = new FormKayıt();
@@ -105,7 +102,5 @@ namespace BiletRezervasyon.Formlar
             this.Hide();
         }
     }
-
-
 }
 

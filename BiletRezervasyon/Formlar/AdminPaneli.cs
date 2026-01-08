@@ -132,7 +132,7 @@ namespace BiletRezervasyon.Formlar
 
         private void BtnVeriYonetimi_Click(object sender, EventArgs e)
         {
-            FormVeriYonetimi veriYonetim = new FormVeriYonetimi();
+            FormVeriYonetimi veriYonetim = new FormVeriYonetimi(curAdmin);
             veriYonetim.Show();
             this.Hide();
         }

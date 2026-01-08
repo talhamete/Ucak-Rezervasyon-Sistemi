@@ -19,9 +19,10 @@ namespace BiletRezervasyon.Formlar
             InitializeComponent();
         }
 
+        // kayıt ol: alanları kontrol et, müşteri oluştur, kaydet, girişe dön
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            // Temel doğrulama: boş alan kalmasın
+            // boş alan var mı
             if (string.IsNullOrWhiteSpace(txtAd.Text) ||
                 string.IsNullOrWhiteSpace(txtSoyad.Text) ||
                 string.IsNullOrWhiteSpace(txtKullaniciAdi.Text) ||
@@ -34,7 +35,7 @@ namespace BiletRezervasyon.Formlar
                 return;
             }
 
-            // Kullanıcı adı benzersiz olmalı
+            // kullanıcı adı daha önce alınmış mı
             if (Veriler.kullanicilar.Any(k => k.KullaniciAdi == txtKullaniciAdi.Text))
             {
                 MessageBox.Show("Bu kullanıcı adı zaten kullanılıyor!", "Hata",
@@ -44,7 +45,7 @@ namespace BiletRezervasyon.Formlar
 
             try
             {
-                // Müşteri nesnesini doldur
+                // yeni müşteri oluştur
                 Musteri yeniMusteri = new Musteri
                 {
                     ID = Veriler.kullanicilar.Count > 0 ? Veriler.kullanicilar.Max(k => k.ID) + 1 : 1,
@@ -56,7 +57,7 @@ namespace BiletRezervasyon.Formlar
                     TelefonNo = txtTelefonNo.Text.Trim()
                 };
 
-                // Listeye ekle ve kaydet
+                // listeye ekle ve kaydet
                 Veriler.kullanicilar.Add(yeniMusteri);
                 VeriYonetimiServisi.KullanicilariKaydet(Veriler.kullanicilar);
 
@@ -69,26 +70,27 @@ namespace BiletRezervasyon.Formlar
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                // Giriş formuna geç
+                // girişe dön
                 FormGiris girisForm = new FormGiris();
                 girisForm.Show();
                 this.Close();
             }
             catch (ArgumentException ex)
             {
-                // Girdi doğrulama hataları
+                // alan doğrulama hatası
                 MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
+                // beklenmeyen hata
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // geri dön: giriş formunu aç
         private void btnGeriDon_Click(object sender, EventArgs e)
         {
-            // Giriş formuna geri dön
             FormGiris girisForm = new FormGiris();
             girisForm.Show();
             this.Close();

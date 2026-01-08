@@ -14,6 +14,7 @@ namespace BiletRezervasyon.Formlar
 {
     public partial class MusteriPaneli : Form
     {
+        // aktif müşteri, seçili sefer ve seçili rezervasyon
         Musteri curMusteri;
         Sefer seciliSefer;
         Rezervasyon seciliRezervasyon;
@@ -25,20 +26,21 @@ namespace BiletRezervasyon.Formlar
             pencereyikisisellestir();
         }
 
+        // form yüklenince listeleri doldur
         private void MusteriPencere_Load(object sender, EventArgs e)
         {
             VerileriGuncelle();
         }
 
+        // pencere başlığına isim yaz
         void pencereyikisisellestir()
         {
-            // Pencere başlığını kullanıcıya göre ayarla
             this.Text = $"Hoşgeldiniz, Sayın {curMusteri.Ad}";
         }
 
+        // seferler grid tıklanınca koltukları ve fiyat bilgisini hazırla
         private void seferlerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Geçersiz satır tıklaması
             if (e.RowIndex < 0)
             {
                 rezerveEtBtn.Enabled = false;
@@ -60,12 +62,12 @@ namespace BiletRezervasyon.Formlar
                 rezerveSilBtn.Enabled = false;
                 rezervasyonlarGDV.ClearSelection();
 
-                // Seçilen sefere göre fiyat panelini güncelle
                 FiyatBilgileriniGuncelle(seciliSefer);
             }
         }
 
-        private void rezerveEtBtn_Click(object sender, EventArgs e) // rezervasyon ekleme butonu
+        // rezerve et butonu
+        private void rezerveEtBtn_Click(object sender, EventArgs e)
         {
             if (koltukCMB.SelectedItem == null || seciliSefer == null)
             {
@@ -73,7 +75,6 @@ namespace BiletRezervasyon.Formlar
                 return;
             }
 
-            // Kullanıcıdan fiyat onayı al
             DialogResult onay = MessageBox.Show(
                 $"Sefer: {seciliSefer.Rota}\n" +
                 $"Koltuk: {koltukCMB.SelectedItem}\n" +
@@ -89,7 +90,6 @@ namespace BiletRezervasyon.Formlar
                 curMusteri.RezerveEt(yeniRezerve);
                 VerileriGuncelle();
 
-                // Sefer seçimi korunuyorsa fiyat panelini yenile
                 if (seciliSefer != null)
                 {
                     FiyatBilgileriniGuncelle(seciliSefer);
@@ -101,7 +101,8 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
-        private void rezerveSilBtn_Click(object sender, EventArgs e) // rezervasyon silme butonu
+        // rezervasyon sil butonu
+        private void rezerveSilBtn_Click(object sender, EventArgs e)
         {
             Rezervasyon silinenRez = seciliRezervasyon;
             curMusteri.RezervasyonSil(silinenRez);
@@ -109,7 +110,8 @@ namespace BiletRezervasyon.Formlar
             MessageBox.Show($"{silinenRez.Sefer}-{silinenRez.Koltuk}\r\nRezervasyon silindi!");
         }
 
-        private void rezervasyonGuncelleBtn_Click(object sender, EventArgs e) // rezervasyon güncelleme butonu
+        // rezervasyon güncelle butonu
+        private void rezervasyonGuncelleBtn_Click(object sender, EventArgs e)
         {
             Koltuk eskiKoltuk = seciliRezervasyon.Koltuk;
             curMusteri.RezervasyonGuncelle(seciliRezervasyon, (Koltuk)koltukCMB.SelectedItem);
@@ -117,13 +119,15 @@ namespace BiletRezervasyon.Formlar
             MessageBox.Show($"{eskiKoltuk} -> {seciliRezervasyon.Koltuk}\r\nKoltuğunuz Güncellendi.");
         }
 
-        void Temizle() // cmbleri temizler
+        // combobox ve fiyat etiketini temizle
+        void Temizle()
         {
             koltukCMB.SelectedItem = null;
-            FiyatBilgileriniTemizle(); // Fiyat bilgilerini de temizle
+            FiyatBilgileriniTemizle();
         }
 
-        private void rezervasyonlarGDV_CellClick(object sender, DataGridViewCellEventArgs e) // rezervasyon seçildiğinde çalışan, secili rezervasyonu atayan ve ona göre koltukCMB yi dolduran fonksiyon
+        // rezervasyonlar grid tıklanınca mevcut rezervasyonu seç ve koltuk listesini hazırla
+        private void rezervasyonlarGDV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
             {
@@ -139,7 +143,6 @@ namespace BiletRezervasyon.Formlar
 
             if (seciliRezervasyon != null)
             {
-                // Var olan rezervasyona göre koltukları ve fiyat panelini hazırla
                 rezervasyonGuncelleBtn.Enabled = true;
                 rezerveSilBtn.Enabled = true;
                 rezerveEtBtn.Enabled = false;
@@ -149,14 +152,13 @@ namespace BiletRezervasyon.Formlar
                 koltukCMB.SelectedItem = seciliRezervasyon.Koltuk;
                 seferlerDGV.ClearSelection();
 
-                // Rezervasyondaki seferin fiyat bilgilerini göster
                 FiyatBilgileriniGuncelle(seciliRezervasyon.Sefer);
             }
         }
 
+        // verileri kaydet, gridleri yenile, seçimleri temizle
         void VerileriGuncelle()
         {
-            // Basit senkronizasyon: liste ve gridleri tazele
             VeriYonetimiServisi.KullanicilariKaydet(Veriler.kullanicilar);
             VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
             seferlerDGV.DataSource = null;
@@ -171,7 +173,7 @@ namespace BiletRezervasyon.Formlar
             {
                 koltukCMB.Items.Clear();
                 koltukCMB.Items.AddRange(seciliSefer.Koltuklar.Where(a => !a.DoluMu).ToArray());
-                FiyatBilgileriniGuncelle(seciliSefer); // Fiyat bilgilerini güncelle
+                FiyatBilgileriniGuncelle(seciliSefer);
             }
             else
             {
@@ -179,6 +181,7 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
+        // seçilen sefere göre fiyat etiketini güncelle
         private void FiyatBilgileriniGuncelle(Sefer sefer)
         {
             if (sefer != null)
@@ -186,13 +189,12 @@ namespace BiletRezervasyon.Formlar
                 int kalanKoltuk = sefer.Koltuklar.Count(k => !k.DoluMu);
                 int kalanGun = (sefer.SeferTarihi.Date - DateTime.Now.Date).Days;
 
-                // Fiyat etiketini kısa ve bilgilendirici tutalım
                 fiyatlbl.Text = $"Fiyat: {sefer.GuncelFiyat:C2}\n" +
                                 $"Base: {sefer.BaseFiyat:C2}\n" +
                                 $"Koltuk: {kalanKoltuk}/{sefer.Ucak.Kapasite}\n" +
                                 $"Gün: {kalanGun}";
 
-                // Doluluk durumuna göre basit renk geri bildirimi
+                // basit renk geri bildirimi
                 if (kalanKoltuk <= 5)
                 {
                     fiyatlbl.ForeColor = Color.FromArgb(245, 108, 108);
@@ -208,12 +210,14 @@ namespace BiletRezervasyon.Formlar
             }
         }
 
+        // fiyat yazısını varsayılana döndür
         private void FiyatBilgileriniTemizle()
         {
             fiyatlbl.Text = "Fiyat";
             fiyatlbl.ForeColor = Color.FromArgb(48, 49, 51);
         }
 
+        // çıkış yap: giriş ekranına dön
         private void hopeButton1_Click(object sender, EventArgs e)
         {
             this.Hide();

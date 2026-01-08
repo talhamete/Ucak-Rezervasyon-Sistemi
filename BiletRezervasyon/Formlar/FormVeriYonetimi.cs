@@ -11,9 +11,16 @@ namespace BiletRezervasyon.Formlar
         private Kullanici seciliKullanici;
         private Ucak seciliUcak;
         private Personel seciliPersonel;
+        Admin curAdmin;
 
         public FormVeriYonetimi()
         {
+            InitializeComponent();
+        }
+
+        public FormVeriYonetimi(Admin admin)
+        {
+            curAdmin = admin;
             InitializeComponent();
         }
 
@@ -52,11 +59,10 @@ namespace BiletRezervasyon.Formlar
         private void VerileriGuncelle()
         {
             seciliKullanici = null;
-            EklemeModu();
             dataGridViewKullanicilar.DataSource = null;
             dataGridViewKullanicilar.DataSource = Veriler.kullanicilar;
             dataGridViewKullanicilar.ClearSelection();
-            Temizle();
+            EklemeModu();
         }
 
         private void Temizle()
@@ -157,9 +163,7 @@ namespace BiletRezervasyon.Formlar
                     };
                 }
 
-                list.Add(yeni);
-                VeriYonetimiServisi.KullanicilariKaydet(list);
-                Veriler.kullanicilar = list;
+                curAdmin.KullaniciEkle(yeni);
                 MessageBox.Show("Kullanýcý baþarýyla eklendi.");
                 VerileriGuncelle();
             }
@@ -253,7 +257,7 @@ namespace BiletRezervasyon.Formlar
         {
             if (seciliKullanici == null) return;
 
-            // Eðer müþteri ise rezervasyon sayýsýný kontrol et
+            // Müþteri ise rezervasyon sayýsýný kontrol et
             if (seciliKullanici is Musteri musteri)
             {
                 int rezervasyonSayisi = musteri.Rezervasyonlar?.Count ?? 0;
@@ -267,19 +271,16 @@ namespace BiletRezervasyon.Formlar
 
                 if (result == DialogResult.Yes)
                 {
-                    // Müþterinin rezervasyonlarýný sil ve koltuklarý boþalt
+                    // Rezervasyonlarý ve koltuklarý temizle
                     if (musteri.Rezervasyonlar != null && musteri.Rezervasyonlar.Any())
                     {
-                        // Veriler.seferler içindeki gerçek koltuk nesnelerini güncelle
                         foreach (var rezervasyon in musteri.Rezervasyonlar.ToList())
                         {
                             if (rezervasyon.Koltuk != null && rezervasyon.Sefer != null)
                             {
-                                // Ýlgili seferi Veriler.seferler içinde bul
                                 var sefer = Veriler.seferler.FirstOrDefault(s => s.SeferNo == rezervasyon.Sefer.SeferNo);
                                 if (sefer != null)
                                 {
-                                    // Seferdeki ilgili koltuðu bul ve boþalt
                                     var koltuk = sefer.Koltuklar.FirstOrDefault(k => k.KoltukNo == rezervasyon.Koltuk.KoltukNo);
                                     if (koltuk != null)
                                     {
@@ -288,7 +289,6 @@ namespace BiletRezervasyon.Formlar
                                 }
                             }
                         }
-
                         musteri.Rezervasyonlar.Clear();
                     }
 
@@ -296,19 +296,11 @@ namespace BiletRezervasyon.Formlar
                     var hedef = list.FirstOrDefault(x => x.ID == seciliKullanici.ID);
                     if (hedef != null)
                     {
-                        // Yüklenen listedeki müþterinin rezervasyonlarýný da temizle
                         if (hedef is Musteri musteriHedef && musteriHedef.Rezervasyonlar != null)
                         {
                             musteriHedef.Rezervasyonlar.Clear();
                         }
-
-                        list.Remove(hedef);
-                        VeriYonetimiServisi.KullanicilariKaydet(list);
-
-                        // Seferleri kaydet (koltuk durumlarý güncellendiði için)
-                        VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
-
-                        Veriler.kullanicilar = list;
+                        curAdmin.KullaniciSil(hedef);
                         MessageBox.Show($"Kullanýcý ve {rezervasyonSayisi} rezervasyon baþarýyla silindi.");
                         VerileriGuncelle();
                     }
@@ -316,7 +308,6 @@ namespace BiletRezervasyon.Formlar
             }
             else
             {
-                // Admin ise normal sil
                 var result = MessageBox.Show(
                     $"'{seciliKullanici.KullaniciAdi}' kullanýcýsýný silmek istediðinizden emin misiniz?",
                     "Silme Onayý",
@@ -329,10 +320,7 @@ namespace BiletRezervasyon.Formlar
                     var hedef = list.FirstOrDefault(x => x.ID == seciliKullanici.ID);
                     if (hedef != null)
                     {
-                        list.Remove(hedef);
-                        VeriYonetimiServisi.KullanicilariKaydet(list);
-                        Veriler.kullanicilar = list;
-
+                        curAdmin.KullaniciSil(hedef);
                         MessageBox.Show("Kullanýcý baþarýyla silindi.");
                         VerileriGuncelle();
                     }
@@ -447,9 +435,7 @@ namespace BiletRezervasyon.Formlar
                     KuyrukNo = ucakKuyrukNoTB.Text.Trim()
                 };
 
-                list.Add(yeni);
-                VeriYonetimiServisi.UcaklariKaydet(list);
-                Veriler.ucaklar = list;
+                curAdmin.UcakEkle(yeni);
                 MessageBox.Show("Uçak baþarýyla eklendi.");
                 UcakVerileriGuncelle();
             }
@@ -467,16 +453,7 @@ namespace BiletRezervasyon.Formlar
             {
                 if (!UcakInputKontrol()) return;
 
-                var list = VeriYonetimiServisi.UcaklariYukle();
-                var hedef = list.FirstOrDefault(x => x.UcakID == seciliUcak.UcakID);
-                if (hedef == null) return;
-
-                hedef.Model = ucakModelTB.Text.Trim();
-                hedef.Kapasite = (int)ucakKapasiteTB.Value;
-                hedef.KuyrukNo = ucakKuyrukNoTB.Text.Trim();
-
-                VeriYonetimiServisi.UcaklariKaydet(list);
-                Veriler.ucaklar = list;
+                curAdmin.UcakGuncelle(seciliUcak, ucakModelTB.Text.Trim(), (int)ucakKapasiteTB.Value, ucakKuyrukNoTB.Text.Trim());
                 MessageBox.Show("Uçak baþarýyla güncellendi.");
                 UcakVerileriGuncelle();
             }
@@ -516,49 +493,7 @@ namespace BiletRezervasyon.Formlar
             {
                 try
                 {
-                    // Önce etkilenen seferlerdeki rezervasyonlarý temizle
-                    foreach (var sefer in etkilenenSeferler)
-                    {
-                        // Tüm müþterilerin bu seferdeki rezervasyonlarýný temizle
-                        foreach (var kullanici in Veriler.kullanicilar.OfType<Musteri>())
-                        {
-                            var silinecekRezervasyonlar = kullanici.Rezervasyonlar
-                                .Where(r => r.Sefer.SeferNo == sefer.SeferNo)
-                                .ToList();
-
-                            foreach (var rez in silinecekRezervasyonlar)
-                            {
-                                kullanici.Rezervasyonlar.Remove(rez);
-                            }
-                        }
-
-                        // Koltuklarý boþalt
-                        foreach (var koltuk in sefer.Koltuklar)
-                        {
-                            koltuk.DoluMu = false;
-                        }
-                    }
-
-                    // Seferleri sil
-                    foreach (var sefer in etkilenenSeferler)
-                    {
-                        Veriler.seferler.Remove(sefer);
-                    }
-
-                    // Uçaðý sil
-                    var ucakList = VeriYonetimiServisi.UcaklariYukle();
-                    var hedef = ucakList.FirstOrDefault(x => x.UcakID == seciliUcak.UcakID);
-                    if (hedef != null)
-                    {
-                        ucakList.Remove(hedef);
-                        VeriYonetimiServisi.UcaklariKaydet(ucakList);
-                        Veriler.ucaklar = ucakList;
-                    }
-
-                    // Deðiþiklikleri kaydet
-                    VeriYonetimiServisi.SeferleriKaydet(Veriler.seferler);
-                    VeriYonetimiServisi.KullanicilariKaydet(Veriler.kullanicilar);
-
+                    curAdmin.UcakSil(seciliUcak);
                     MessageBox.Show($"Uçak, {seferSayisi} sefer ve {rezervasyonSayisi} rezervasyon baþarýyla silindi.");
                     UcakVerileriGuncelle();
                 }
@@ -572,10 +507,10 @@ namespace BiletRezervasyon.Formlar
         private void UcakVerileriGuncelle()
         {
             seciliUcak = null;
-            UcakEklemeModu();
             dataGridViewUcaklar.DataSource = null;
             dataGridViewUcaklar.DataSource = Veriler.ucaklar;
             dataGridViewUcaklar.ClearSelection();
+            UcakEklemeModu();
         }
 
         private void UcakEklemeModu()
@@ -672,9 +607,7 @@ namespace BiletRezervasyon.Formlar
                     };
                 }
 
-                list.Add(yeni);
-                VeriYonetimiServisi.PersonelleriKaydet(list);
-                Veriler.personeller = list;
+                curAdmin.PersonelEkle(yeni);
                 MessageBox.Show("Personel baþarýyla eklendi.");
                 PersonelVerileriGuncelle();
             }
@@ -724,15 +657,14 @@ namespace BiletRezervasyon.Formlar
                     }
 
                     list[index] = yeniPersonel;
+                    VeriYonetimiServisi.PersonelleriKaydet(list);
+                    Veriler.personeller = list;
                 }
                 else
                 {
-                    hedef.Ad = personelAdTB.Text.Trim();
-                    hedef.Soyad = personelSoyadTB.Text.Trim();
+                    curAdmin.PersonelGuncelle(hedef, personelAdTB.Text.Trim(), personelSoyadTB.Text.Trim());
                 }
 
-                VeriYonetimiServisi.PersonelleriKaydet(list);
-                Veriler.personeller = list;
                 MessageBox.Show("Personel baþarýyla güncellendi.");
                 PersonelVerileriGuncelle();
             }
@@ -754,26 +686,19 @@ namespace BiletRezervasyon.Formlar
 
             if (result == DialogResult.Yes)
             {
-                var list = VeriYonetimiServisi.PersonelleriYukle();
-                var hedef = list.FirstOrDefault(x => x.ID == seciliPersonel.ID);
-                if (hedef != null)
-                {
-                    list.Remove(hedef);
-                    VeriYonetimiServisi.PersonelleriKaydet(list);
-                    Veriler.personeller = list;
-                    MessageBox.Show("Personel baþarýyla silindi.");
-                    PersonelVerileriGuncelle();
-                }
+                curAdmin.PersonelSil(seciliPersonel);
+                MessageBox.Show("Personel baþarýyla silindi.");
+                PersonelVerileriGuncelle();
             }
         }
 
         private void PersonelVerileriGuncelle()
         {
             seciliPersonel = null;
-            PersonelEklemeModu();
             dataGridViewPersoneller.DataSource = null;
             dataGridViewPersoneller.DataSource = Veriler.personeller;
             dataGridViewPersoneller.ClearSelection();
+            PersonelEklemeModu();
         }
 
         private void PersonelEklemeModu()
@@ -812,19 +737,15 @@ namespace BiletRezervasyon.Formlar
 
         private void cksBtn_Click(object sender, EventArgs e)
         {
-
             this.Hide();
-            AdminPaneli adminForm = new AdminPaneli();
+            AdminPaneli adminForm = new AdminPaneli(curAdmin);
             adminForm.Show();
-
         }
-
 
         #endregion
 
         private void tabKullanici_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
